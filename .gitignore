@@ -32,6 +32,7 @@ wheels/
 *.swp
 *.swo
 *~
+.history/
 
 # OS
 .DS_Store
@@ -47,3 +48,6 @@ plantuml.jar
 # Environment
 .env
 .env.local
+
+# Inputs
+Inputs/

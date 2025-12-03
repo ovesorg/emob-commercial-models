@@ -44,3 +44,61 @@ markdown_extensions:
 
 nav:
   - Home: index.md
+  - Discussion 12-03-25: discussion-120325.md
+  - Overview:
+      - 0-overview/index.md
+  - Product-Unit Model:
+      - 1-product-unit-model/index.md
+      - Structure: 1-product-unit-model/1-structure.md
+      - Taxonomy: 1-product-unit-model/2-taxonomy.md
+      - Templates: 1-product-unit-model/3-templates.md
+  - Product-Unit Library:
+      - 2-product-unit-library/index.md
+      - Physical: 2-product-unit-library/1-physical.md
+      - Service: 2-product-unit-library/2-service.md
+      - Digital & Operational: 2-product-unit-library/3-digital-operational.md
+      - Regulatory: 2-product-unit-library/4-regulatory.md
+      - Composite: 2-product-unit-library/5-composite.md
+  - Bundling Framework:
+      - 3-bundling-framework/index.md
+      - Types: 3-bundling-framework/1-types.md
+      - Pitfalls: 3-bundling-framework/2-pitfalls.md
+      - Bundle Templates: 3-bundling-framework/3-bundle-templates.md
+  - Pricing Models:
+      - 4-pricing-models/index.md
+      - Pricing Types: 4-pricing-models/1-pricing-types.md
+      - Channel Pricing: 4-pricing-models/2-channel-pricing.md
+      - Price Governance: 4-pricing-models/3-price-governance.md
+  - Transactional Models:
+      - 5-transactional-models/index.md
+      - Journey Overview: 5-transactional-models/1-journey-overview.md
+      - Sales Channels: 5-transactional-models/2-sales-channels.md
+      - Contract Structures: 5-transactional-models/3-contract-structures.md
+      - Transaction Templates: 5-transactional-models/4-transaction-templates.md
+  - Commercial Operations SoPs:
+      - 6-commercial-operations-sops/index.md
+      - SoP Principles: 6-commercial-operations-sops/1-sop-principles.md
+      - SoP Templates: 6-commercial-operations-sops/2-sop-templates.md
+      - Onboarding SoPs: 6-commercial-operations-sops/3-onboarding-sops.md
+      - Sales Fulfilment SoPs: 6-commercial-operations-sops/4-sales-fulfilment-sops.md
+      - Subscription Service SoPs: 6-commercial-operations-sops/5-subscription-service-sops.md
+      - Aftersales Support SoPs: 6-commercial-operations-sops/6-aftersales-support-sops.md
+  - Integration Systems:
+      - 7-integration-systems/index.md
+      - Odoo Integration: 7-integration-systems/1-odoo-integration.md
+      - OVApp Integration: 7-integration-systems/2-ovapp-integration.md
+      - IoT Integration: 7-integration-systems/3-iot-integration.md
+  - Governance & Change Control:
+      - 8-governance-change-control/index.md
+      - Governance: 8-governance-change-control/1-governance.md
+      - Versioning Rules: 8-governance-change-control/2-versioning-rules.md
+      - Approval Workflow: 8-governance-change-control/3-approval-workflow.md
+      - Channel Communication: 8-governance-change-control/4-channel-communication.md
+  - Appendix:
+      - 9-appendix/index.md
+      - Glossary: 9-appendix/1-glossary.md
+      - Reference Templates: 9-appendix/2-reference-templates.md
+      - Sample Product-Units: 9-appendix/3-sample-product-units.md
+      - Sample Bundles: 9-appendix/4-sample-bundles.md
+      - Example Contracts & Flows: 9-appendix/5-example-contracts-flows.md
+      - Regulatory by Market: 9-appendix/6-regulatory-by-market.md

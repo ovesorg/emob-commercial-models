@@ -1,0 +1,54 @@
+@startmindmap
+
+' Quadrant color system via stereotypes
+skinparam node {
+  BackgroundColor<<Q1>> #fff2cc
+  BorderColor<<Q1>> #d6b656
+
+  BackgroundColor<<Q2>> #d5e8d4
+  BorderColor<<Q2>> #82b366
+
+  BackgroundColor<<Q3>> #dae8fc
+  BorderColor<<Q3>> #6c8ebf
+
+  BackgroundColor<<Q4>> #f8cecc
+  BorderColor<<Q4>> #b85450
+}
+
+* Commercial SoP
+
+left side
+** Business\nObjectives <<Q1>>
+*** Customer\nGoals
+*** OVES\nGoals
+*** Partner\nGoals
+*** BUFM\nLink
+*** Success\nMetrics
+
+** Business\nEnvironment <<Q2>>
+*** Market\nContext
+*** Channel\nContext
+*** Asset\nScope
+*** Regulatory\nFrame
+*** Risk\nLimits
+
+right side
+** Implementation <<Q3>>
+*** Product\nUnits
+*** Bundles\nOffers
+*** Pricing\nRules
+*** Contract\nPatterns
+*** Transaction\nFlow
+*** Odoo\nSetup
+*** OVApp\nFlows
+*** IoT\nEvents
+
+** SoP\nAdoption <<Q4>>
+*** Target\nUsers
+*** Agent\nGuides
+*** Customer\nChecks
+*** Training\nCases
+*** Field\nFeedback
+*** SoP\nUpdates
+
+@endmindmap
