@@ -1,31 +1,24 @@
 ## Overview
 
-### Purpose of the Commercial Model Project
+### Purpose
 
-Define a **commercially coherent, operationally actionable** framework that describes all **Product-Units**, how they create value, how they combine into offerings, and how they are transacted and operated in the field.
+Define a commercially coherent, operationally actionable framework for Product-Units, bundling, and field operations. Lead to ready-to-use Commercial Standard Operating Procedures (SoPs) aligned with sales channels, app workflows, and customer interactions.
 
-This framework must lead to **ready-to-use Commercial Standard Operating Procedures (SoPs)** aligned with OVES's sales channels, app workflows, and customer-facing interactions.
+### Twin Pillars
 
-### Relationship to BUFM
+**1. Odoo - Commercial Transaction Management**
+- Customer relationship management (CRM)
+- Product definition and catalog
+- Sales orders and payment processing
+- Commercial workflow orchestration
 
-This project mirrors the **unit-composition approach** previously used in the **BUFM** project, but focuses on **commercial logic, product definition, bundling, pricing, transactions, and operational SoPs**.
+**2. ABS - Asset-Based Services**
+- Asset lifecycle management
+- Asset-to-customer interaction logic
+- Smart asset operations and entitlements
 
-### How to Use This Documentation
+**Value Proposition:** Integration of CRM and Asset Relationship Management (ARM).
 
-Use this documentation as a basis for:
-
-* Detailed analysis and model design
-* Documentation generation
-* SoP creation
-* Product-Unit definitions for specific use cases
-* Bundle design and pricing logic
-
-### Two-Horizon Alignment
-
-**Short Term (30 days)**: Tools and workflows allowing immediate sales execution.
-
-**Long Term (12–24 months)**: Architecture supporting the full commercial model vision.
-
-### Core Architecture Consensus
+### Architecture Consensus
 
 "Odoo handles commercial workflow. ABS handles smart assets. They handshake to deliver customer satisfaction."
