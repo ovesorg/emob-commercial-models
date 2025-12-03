@@ -29,8 +29,8 @@
     // MSAL Configuration (to be customized per deployment)
     const msalConfig = {
         auth: {
-            clientId: 'YOUR_CLIENT_ID_HERE',  // Replace with your Azure AD App Registration Client ID
-            authority: 'https://login.microsoftonline.com/YOUR_TENANT_ID_HERE',  // Replace with your tenant ID
+          clientId: '4ad21ef9-0f4d-42f7-830c-005c012495d9',  // Replace with your Azure AD App Registration Client ID
+            authority: 'https://login.microsoftonline.com/883916b0-e831-4935-9836-7ee891edaf7c',  // Replace with your tenant ID
             redirectUri: window.location.origin
         },
         cache: {
