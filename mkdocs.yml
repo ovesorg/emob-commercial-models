@@ -42,6 +42,22 @@ markdown_extensions:
   - toc:
       permalink: true
 
+plugins:
+  - search
+  - i18n:
+      docs_structure: folder
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+        - locale: zh
+          name: 中文
+          build: true
+        - locale: fr
+          name: Français
+          build: true
+
 nav:
   - Home: index.md
   - Discussion 12-03-25: discussion-120325.md
@@ -52,6 +68,8 @@ nav:
       - Structure: 1-product-unit-model/1-structure.md
       - Taxonomy: 1-product-unit-model/2-taxonomy.md
       - Templates: 1-product-unit-model/3-templates.md
+      - Odoo Product Models: 1-product-unit-model/4-odoo-prod-models.md
+      - ABS-Odoo Bundles: 1-product-unit-model/5-abs-odoo-bundles.md
   - Product-Unit Library:
       - 2-product-unit-library/index.md
       - Physical: 2-product-unit-library/1-physical.md
