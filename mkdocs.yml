@@ -89,10 +89,14 @@ nav:
       - Price Governance: 4-pricing-models/3-price-governance.md
   - Transactional Models:
       - 5-transactional-models/index.md
-      - Journey Overview: 5-transactional-models/1-journey-overview.md
-      - Sales Channels: 5-transactional-models/2-sales-channels.md
-      - Contract Structures: 5-transactional-models/3-contract-structures.md
-      - Transaction Templates: 5-transactional-models/4-transaction-templates.md
+      - Sales Order: 5-transactional-models/1-sales-order.md
+      - Sales Reps: 5-transactional-models/2-sale-reps.md
+      - Sales Channel: 5-transactional-models/3-sales-channel.md
+      - Order to Sales: 5-transactional-models/4-order-to-sales.md
+      - Session Register: 5-transactional-models/5-session-register.md
+      - Odoo Models: 5-transactional-models/6-odoo-models.md
+      - ABS Models: 5-transactional-models/7-abs-models.md
+      - OVApp Workflows: 5-transactional-models/8-ovapp-workflows.md
   - Commercial Operations SoPs:
       - 6-commercial-operations-sops/index.md
       - SoP Principles: 6-commercial-operations-sops/1-sop-principles.md
