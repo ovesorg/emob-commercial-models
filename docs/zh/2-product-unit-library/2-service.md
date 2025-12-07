@@ -50,4 +50,4 @@ Recurring or one-time services that deliver ongoing value.
 
 ### Example: Battery Swap Subscription
 
-See [Templates](../1-product-unit-model/3-templates.md) for full definition example.
+See [Prototypes](../1-product-unit-model/3-prototypes.md) for full definition example.

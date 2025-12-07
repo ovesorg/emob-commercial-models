@@ -1,20 +1,16 @@
-Your interpretation is **100% correct**, and you’ve articulated the cleanest architecture for OVES so far.
+# ABS System
 
-Let me restate it in a **precise, structured way** that you can reuse with the team:
-
----
-
-# ✅ **Core Principle**
+## Core Principle
 
 **Product Unit** is the *shared atomic concept* between ABS and Odoo.
 **Bundle** is an *ABS-only construct*, not an Odoo construct.
 
-Odoo never needs to know “what a bundle is.”
+Odoo never needs to know "what a bundle is."
 Odoo only needs to receive and process **Product Units**, each with its own commercial meaning.
 
 ---
 
-# 🎯 **1. ABS Creates and Owns Bundles**
+## 1. ABS Creates and Owns Bundles
 
 ABS is the **business logic engine** that:
 
@@ -37,7 +33,7 @@ And **not polluted by Odoo limitations**.
 
 ---
 
-# 🎯 **2. Odoo Should NOT Mirror Bundles**
+## 2. Odoo Should NOT Mirror Bundles
 
 Odoo bundles (BoMs, kits, variants) should NOT be used for:
 
@@ -47,7 +43,7 @@ Odoo bundles (BoMs, kits, variants) should NOT be used for:
 * deposit + subscription + entitlement packages
 * multi-tier subscription logic
 
-Because Odoo’s bundle mechanisms:
+Because Odoo's bundle mechanisms:
 
 * are static
 * are physical/inventory-oriented
@@ -60,7 +56,7 @@ So yes:
 
 ---
 
-# 🎯 **3. How Bundles Appear in Odoo →** as **sale.order lines**
+## 3. How Bundles Appear in Odoo → as **sale.order lines**
 
 When a customer selects a bundle in the frontend (OVApp):
 
@@ -71,7 +67,7 @@ When a customer selects a bundle in the frontend (OVApp):
 Example:
 
 **Bundle selected in ABS:**
-“45Ah Premium Swap Start Pack”
+"45Ah Premium Swap Start Pack"
 
 **ABS internally maps to Product Units:**
 
@@ -112,7 +108,7 @@ ABS does the operational logic:
 
 ---
 
-# 🎯 **4. This enforces the design principle clearly**
+## 4. This enforces the design principle clearly
 
 ### **Odoo handles all customer-facing commercial logic.**
 
@@ -134,11 +130,11 @@ ABS does the operational logic:
 * Telemetry
 
 **Bundles belong to ABS**
-because bundling is actually *business-logic composition*, not “product composition.”
+because bundling is actually *business-logic composition*, not "product composition."
 
 ---
 
-# 🎯 **5. Why this architecture is strategically correct**
+## 5. Why this architecture is strategically correct
 
 ### ✔ No SKU explosion
 
@@ -170,11 +166,9 @@ ABS can add new bundle types without reconfiguring Odoo.
 
 ---
 
-# 🎯 **6. The final model in one sentence**
+## 6. The final model in one sentence
 
 **ABS decides what bundle a customer can buy.
 Odoo decides how each product unit is commercially executed.**
 
-That’s it.
-
-
+That's it.

@@ -52,17 +52,23 @@ Requires:
 
 ## Odoo Native Product Constructs
 
+We distinguish three fundamental Product-Unit categories in Odoo:
+
+- **Physical Product-Units**: Tangible assets (e.g., MobBat batteries, bikes) modeled as stockable products.
+- **Service Product-Units**: Intangible services and entitlements (e.g., Battery Circulation Access – Swap Network) modeled as service products.
+- **Contract Product-Units**: Long-duration commercial commitments (e.g., 1-Year 45Ah Swap Entitlement) modeled as service products with contract/recurring behavior.
+
 | Odoo Construct | What It Is | Purpose in Odoo | Relevance to OVES/ABS |
 |----------------|------------|-----------------|----------------------|
-| **Product Template** | Product family definition | Base object for sellable items | Where Product-Units live; defines type |
+| **Product Template** | Product family definition | Base object for sellable items | Where Physical, Service, and Contract Product-Units live; defines type |
 | **Product Variant** | Specific variation | Attribute-based variations | Avoid for commercial packaging |
-| **Product Category** | Classification tree | Accounting, reporting, segmentation | Group: physical goods, services, deposits |
+| **Product Category** | Classification tree | Accounting, reporting, segmentation | Group: Physical, Service, Contract, and Deposit Product-Units |
 | **BoM (Kit/Set)** | Predefined bundle | Sales bundle (delivered as components) | Good for fixed bundles only |
 | **Pricelist** | Price rules per channel | Channel/customer/market-specific pricing | Critical for channel differentiation |
 | **Company-specific Products** | Products visible only in selected companies | Multi-company separation | Country/franchise-specific offerings |
-| **Sales Order** | Commercial transaction record | Drives fulfillment, revenue recognition | Anchor for deposits, privileges, subscriptions |
-| **Service Product** | Product with no stock movement | Subscriptions, entitlements, swap credits | Swap subscription, access privilege |
-| **Subscription Model** | Recurring invoicing | Subscriptions, memberships | Weekly swap fees, recurring commitments |
+| **Sales Order** | Commercial transaction record | Drives fulfillment, revenue recognition | Anchor for deposits, privileges, subscriptions, and contracts |
+| **Service Product** | Product with no stock movement | Subscriptions, entitlements, swap credits | Swap subscription, access privilege, and contract Product-Units |
+| **Subscription Model** | Recurring invoicing | Subscriptions, memberships | Weekly swap fees, recurring commitments, long-duration contracts |
 | **Deposit Product** | Service + Liability Account | Returns/refunds, warranties | Battery swap privilege deposits |
 | **Warranty/Return Rules** | After-sale processes | Standard RMA flow | Deposit recovery, entitlement cancellation |
 
@@ -83,5 +89,3 @@ Requires:
 * Entitlement logic
 * Asset lifecycle management
 * Usage tracking
-
-

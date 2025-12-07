@@ -14,24 +14,23 @@ Each Product-Unit is defined across the five dimensions:
 
 ### Library Organization
 
-Product-Units are organized by category:
+Product-Units are organized by category (from the four-category taxonomy):
 
-* **Physical** — Tangible assets (batteries, vehicles, chargers, accessories)
-* **Service** — Recurring or one-time services (subscriptions, maintenance, support)
-* **Digital & Operational** — App features, IoT capabilities, platform access
-* **Regulatory** — Compliance, registration, legal documentation
-* **Composite** — Multi-component units combining elements from multiple categories
+- **Physical Product-Units** — Tangible assets (batteries, vehicles, chargers, accessories)
+- **Digital Product-Units** — App features, IoT capabilities, platform access
+- **Service Product-Units** — Recurring or one-time services (subscription services, maintenance, support)
+- **Contract Product-Units** — Entitlements and obligations (deposits, long-duration contracts, memberships)
 
 ### Three Core Product-Unit Types (Proposed)
 
-1. **Physical Product**  
+1. **Physical Product-Unit**  
    Examples: LEV E3-Pro, S3, chargers, accessories
 
-2. **Service Product**  
-   Example: Swap Subscription or other recurring service
+2. **Service Product-Unit**  
+   Example: Swap subscription service or other recurring service
 
-3. **Deposit-Based Entitlement** *(critical new category)*  
-   A deposit product that grants the customer long-term access to a **pool of assets**, without tying them to a specific serial-numbered item.
+3. **Contract Product-Unit (Deposit-Based Entitlement)** *(critical building block)*  
+   A deposit-backed or contract-backed Product-Unit that grants the customer long-term access to a **pool of assets**, without tying them to a specific serial-numbered item.
 
 ### The Missing Building Block: Deposit-Based Entitlement
 

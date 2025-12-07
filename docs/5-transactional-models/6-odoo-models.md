@@ -172,7 +172,7 @@ From OVApp’s perspective:
 * `company_id` – OVES legal entity.
 * `user_id` – internal Odoo user (e.g. generic OVApp connector).
 * `state` – `draft`, `sent`, `sale`, `done`, `cancel`.
-* `order_line` – products (unit products).
+* `order_line` – products (**Product-Units**: Physical, Digital, Service, Contract, Deposit).
 * `payment_transaction_ids` – online/offline payment attempts.
 * `invoice_ids` / `invoice_status` – accounting linkage.
 

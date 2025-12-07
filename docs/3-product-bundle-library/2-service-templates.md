@@ -1,4 +1,4 @@
-## Bundle Templates
+## Service Templates
 
 ### Standard Bundle Template
 
@@ -119,6 +119,10 @@ Use this template to define any bundle:
    A: [Answer]
 ```
 
-### Example: Starter Kit Bundle
+### Composite Offerings
 
-See [Appendix: Sample Bundles](../9-appendix/4-sample-bundles.md) for complete example.
+Composite commercial offerings are modeled as **ABS bundles**, not as single Product-Units.
+
+For bundle types, templates, and design principles, see:
+
+- [Bundle Design](1-bundle-design.md)
