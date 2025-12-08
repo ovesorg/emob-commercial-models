@@ -1,82 +1,76 @@
-## Digital & Operational
+# Digital Product-Units
 
-### Digital/Operational Product Units
+## Overview
 
-App features, IoT capabilities, platform access, and **deposit-based entitlements**.
+Digital Product-Units represent **media-type products** such as apps, digital content, IoT dashboards, and platform services. 
 
-#### App Features
+**Current Status:** This category is **reserved for future use** and not currently active in commercial offerings. It is maintained in the library to support future expansion into digital product lines.
+
+## Potential Product Types
+
+### App Features
 
 **Customer App Access**
-- Account creation and onboarding
-- Swap station locator
-- Transaction history
-- Support ticketing
+- Account management and onboarding
+- Swap station locator and navigation
+- Transaction history and billing
+- Support ticketing and notifications
 
 **Agent App Features**
-- Sales workflows
-- Order management
-- Customer verification
-- Commission tracking
+- Sales workflows and order management
+- Customer verification and KYC
+- Commission tracking and reporting
 
-#### IoT Capabilities
+### IoT Dashboards
 
-**Battery Telemetry**
-- Health monitoring
-- Location tracking
-- Usage analytics
+**Fleet Management Dashboard**
+- Real-time asset tracking and location
+- Utilization reporting and analytics
+- Predictive maintenance alerts
 
-**Charger Connectivity**
-- Remote monitoring
-- Usage tracking
-- Fault detection
+**Battery Telemetry Dashboard**
+- Health monitoring (SoH, SoC)
+- Charging/discharge patterns
+- Usage analytics and anomaly detection
 
-**Fleet Management**
-- Asset tracking
-- Utilization reporting
-- Predictive maintenance
-
-#### Deposit-Based Entitlements
-
-**Battery Asset Pool Access Deposit**
-
-**Identity:**
-- Category: Deposit-Based Entitlement
-- Unique ID: DEP-BATT-POOL-01
-- Description: Refundable deposit granting access to battery swap pool
-
-**Value:**
-- Customer: Financial safeguard, asset access without ownership
-- Business: Risk mitigation, asset protection, liquidity management
-- Risk Exposure: Deposit refund obligation, asset damage liability
-
-**Context:**
-- Prerequisites: Active swap subscription, verified customer account
-- Dependencies: Battery inventory, swap station network
-- Constraints: Deposit amount tied to battery value, geographic coverage
-
-**Obligations:**
-- Refund deposit upon service termination (subject to asset condition)
-- Maintain asset pool quality
-- Provide clear end-of-service options
-
-**Costs:**
-- Capital: Battery inventory allocation
-- Operating: Asset maintenance, replacement reserve
-- Support: Deposit reconciliation, dispute resolution
-
-**End-of-Service Options:**
-1. **Refund**: Return full deposit upon clean termination
-2. **Convert**: Apply deposit value toward purchasing a used battery or other product
-3. **Liquidate**: Deduct asset damage or obligation breaches from deposit
+**Charger Connectivity Dashboard**
+- Remote monitoring and control
+- Usage tracking and billing integration
+- Fault detection and diagnostics
 
 ### Platform Services
 
-**CARM Features**
+**CARM Platform Access**
 - Customer relationship management
-- Analytics dashboards
-- Reporting tools
+- Analytics and reporting tools
+- Data export and API integration
 
 **Integration APIs**
-- Odoo synchronization
-- Third-party integrations
-- Data export capabilities
+- Odoo synchronization endpoints
+- Third-party service integrations (payment gateways, logistics providers)
+- Custom data connectors
+
+## Characteristics of Digital Product-Units
+
+**Common Attributes:**
+
+- **Access-Based** — Typically licensed or subscription-based access rather than one-time purchase
+- **Scalable** — Low marginal cost to serve additional users
+- **Platform-Dependent** — Requires underlying technical infrastructure (cloud hosting, APIs, mobile OS)
+- **Updateable** — Can be enhanced, patched, or updated without physical distribution
+
+**Obligations:**
+
+- **Availability Guarantees** — Uptime SLAs for cloud-based services
+- **Data Privacy & Security** — Compliance with data protection regulations (GDPR, local laws)
+- **User Support** — Technical assistance, onboarding, training materials
+- **Version Compatibility** — Backward compatibility or migration support for updates
+
+## Future Considerations
+
+As the OVES ecosystem evolves, Digital Product-Units may include:
+
+- **Premium App Features** — Advanced analytics, personalized insights, priority support
+- **Digital Content** — Training videos, user manuals, maintenance guides
+- **Licensing Models** — Per-user, per-device, or per-organization licensing for enterprise customers
+- **Marketplace Integrations** — Third-party app integrations, plugin ecosystems

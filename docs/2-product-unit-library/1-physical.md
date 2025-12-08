@@ -1,45 +1,92 @@
-## Physical
+# Physical Product-Units
 
-### Physical Product Units
+## Overview
 
-Tangible assets that can be tracked, serialized, and physically delivered.
+Physical Product-Units are tangible assets that can be serialized, tracked, and physically delivered. These products have lifecycle management requirements, warranty obligations, and residual value considerations.
 
-#### Batteries
+## Product Examples
 
-- **Battery Pack (Standard)**
-- **Battery Pack (Extended Range)**
-- **Replacement Battery**
+### Motorbikes
 
-#### Vehicles
+**LEV E3-Pro**
+- **Category:** Physical Product-Unit
+- **Metric:** Piece
+- **Description:** Electric motorbike, standard configuration
+- **Tracking:** Serial number, VIN, asset lifecycle
 
-- **LEV E3-Pro**
-- **LEV S3**
-- **Custom Vehicle Configurations**
+**LEV S7**
+- **Category:** Physical Product-Unit
+- **Metric:** Piece
+- **Description:** Electric motorbike, mid-range configuration
+- **Tracking:** Serial number, VIN, asset lifecycle
 
-#### Chargers
+**LEV S6H**
+- **Category:** Physical Product-Unit
+- **Metric:** Piece
+- **Description:** Electric motorbike, high-performance configuration
+- **Tracking:** Serial number, VIN, asset lifecycle
 
-- **Home Charger (Standard)**
-- **Fast Charger**
-- **Portable Charger**
+### Batteries
 
-#### Accessories
+**MotBat 30Ah**
+- **Category:** Physical Product-Unit
+- **Metric:** Piece
+- **Description:** 30Ah battery pack for LEV motorbikes
+- **Tracking:** Serial number, SoH (State of Health), circulation status
 
-- **Installation Kits**
-- **Mounting Hardware**
-- **Cables & Connectors**
-- **Safety Equipment**
+**MotBat 45Ah**
+- **Category:** Physical Product-Unit
+- **Metric:** Piece
+- **Description:** 45Ah battery pack for LEV motorbikes
+- **Tracking:** Serial number, SoH, circulation status
 
-### Physical Product Characteristics
+**MotBat 100Ah**
+- **Category:** Physical Product-Unit
+- **Metric:** Piece
+- **Description:** 100Ah battery pack for commercial/fleet applications
+- **Tracking:** Serial number, SoH, circulation status
 
-**Common Attributes:**
-- Serial number tracking
-- Asset lifecycle management
-- Warranty coverage
-- Maintenance requirements
-- Residual value considerations
+### Chargers
 
-**Obligations:**
-- Quality guarantee
-- Replacement parts availability
-- Technical support
-- End-of-life handling
+**Home Charger (Standard)**
+- **Category:** Physical Product-Unit
+- **Metric:** Piece
+- **Description:** Residential charging unit for MotBat batteries
+- **Tracking:** Serial number, installation location
+
+**Fast Charger**
+- **Category:** Physical Product-Unit
+- **Metric:** Piece
+- **Description:** Commercial fast-charging unit for swap stations
+- **Tracking:** Serial number, station assignment, utilization metrics
+
+### Accessories
+
+**Installation Kits**
+- **Category:** Physical Product-Unit
+- **Metric:** Piece
+- **Description:** Mounting hardware, cables, connectors for charger installation
+
+**Safety Equipment**
+- **Category:** Physical Product-Unit
+- **Metric:** Piece
+- **Description:** Helmets, protective gear, reflective vests
+
+## Common Attributes
+
+**All Physical Product-Units share:**
+
+- **Serial Number Tracking** — Unique identifier for each unit
+- **Asset Lifecycle Management** — Procurement, deployment, maintenance, retirement
+- **Warranty Coverage** — Manufacturer or service provider warranty terms
+- **Maintenance Requirements** — Scheduled servicing, inspections, repairs
+- **Residual Value** — End-of-life value for resale, refurbishment, or recycling
+
+## Obligations
+
+**When selling or deploying Physical Product-Units, we commit to:**
+
+- **Quality Guarantee** — Products meet specified performance standards
+- **Replacement Parts Availability** — Spare parts for repairs during warranty and service periods
+- **Technical Support** — Troubleshooting, installation assistance, user training
+- **End-of-Life Handling** — Responsible disposal, recycling, or buy-back programs

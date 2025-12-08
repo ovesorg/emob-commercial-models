@@ -319,3 +319,32 @@ That’s the **Odoo Model SUMMARY** in one place:
 - Everything else (flows, analytics, future PoS integration) builds cleanly on top.
 
 - Extending sale.order with _inherit = 'sale.order' means “take the original Sale Order model, keep all of its standard behavior exactly as is, and add our additional fields.”
+
+  ## 6.3 Product-Unit Configuration in Odoo (Reference)
+
+  This table summarizes key Odoo configuration fields for the reference Product-Units.  
+  Canonical Product-Unit definitions live in `1-product-unit-model` and `2-product-unit-library`.  
+  This is only the **Odoo configuration view**.
+
+  | Product Name                                   | PU Category | Contract Type | Service Type | Odoo Type (`product.template.type`) | Invoice Policy               | Recurring? | Duration Handling                      |
+  |------------------------------------------------|------------|---------------|-------------|-------------------------------------|------------------------------|-----------|----------------------------------------|
+  | E3-Pro                                         | Physical   | n/a           | n/a         | `product` (stockable)               | Delivered quantities         | No        | n/a                                    |
+  | S7                                             | Physical   | n/a           | n/a         | `product`                           | Delivered quantities         | No        | n/a                                    |
+  | S6H                                            | Physical   | n/a           | n/a         | `product`                           | Delivered quantities         | No        | n/a                                    |
+  | MotBat 30Ah                                    | Physical   | n/a           | n/a         | `product`                           | Delivered quantities         | No        | n/a                                    |
+  | MotBat 45Ah                                    | Physical   | n/a           | n/a         | `product`                           | Delivered quantities         | No        | n/a                                    |
+  | MotBat 100Ah                                   | Physical   | n/a           | n/a         | `product`                           | Delivered quantities         | No        | n/a                                    |
+  | Battery Swap Access – 45Ah – Weekly            | Service    | n/a           | Access      | `service`                           | Prepaid / ordered quantities | Often Yes | Explicit duration (e.g. 7 days)        |
+  | Battery Swap Access – 45Ah – Monthly           | Service    | n/a           | Access      | `service`                           | Prepaid / ordered quantities | Yes       | Explicit duration (e.g. 1 month)       |
+  | Swap Network Access – City – 12 Months         | Service    | n/a           | Access      | `service`                           | Prepaid / ordered quantities | Yes       | Explicit duration (12 months)          |
+  | Charging Network Access – City – 12 Months     | Service    | n/a           | Access      | `service`                           | Prepaid / ordered quantities | Yes / No  | Explicit duration (12 months)          |
+  | Battery Swap Usage – 45Ah – Per Swap           | Service    | n/a           | Gage        | `service`                           | Delivered quantities         | No        | Per-usage; no fixed duration           |
+  | Battery Swap Usage – 45Ah – Pack of 50         | Service    | n/a           | Gage        | `service`                           | Delivered quantities         | No        | Consumed against prepaid balance       |
+  | Energy Usage – kWh                             | Service    | n/a           | Gage        | `service`                           | Delivered quantities         | No        | Measured by kWh usage                  |
+  | Swap Privilege – MotBat 45Ah                   | Contract   | Privilege     | n/a         | `service`                           | Prepaid / deposit-like       | Yes / No  | Contract term (e.g. 12/24/36 months)   |
+  | Swap Privilege – MotBat 30Ah                   | Contract   | Privilege     | n/a         | `service`                           | Prepaid / deposit-like       | Yes / No  | Contract term                          |
+  | Swap Privilege – MotBat 100Ah                  | Contract   | Privilege     | n/a         | `service`                           | Prepaid / deposit-like       | Yes / No  | Contract term                          |
+  | Replacement Warranty – MotBat 45Ah – 24 Months | Contract   | Warranty      | n/a         | `service`                           | Prepaid                      | No        | Fixed term (24 months)                 |
+  | Limited Warranty – E3-Pro – 24 Months          | Contract   | Warranty      | n/a         | `service`                           | Prepaid                      | No        | Fixed term (24 months)                 |
+  | Motorbike Rental – E3-Pro – 12 Months          | Contract   | Rental        | n/a         | `service`                           | Recurring or prepaid         | Yes       | Contract term (12 months)              |
+  | Maintenance Contract – E3-Pro – 12 Months      | Contract   | Maintenance   | n/a         | `service`                           | Recurring or prepaid         | Yes / No  | Contract term (12 months)              |

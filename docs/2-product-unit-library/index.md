@@ -1,50 +1,55 @@
-## Product-Unit Library
+# Product-Unit Library
 
-### Overview
+## Purpose
 
-This is a **living catalog** of all Product-Units available in the OVES commercial model.
+This library is a **curated showcase** of Product-Unit types and variety, designed to:
 
-Each Product-Unit is defined across the five dimensions:
+- **Inspire** commercial and technical teams with examples of products we have created and will create.
+- **Demonstrate** logical structures and commercial meaning for Product-Units.
+- **Organize** Product-Units by category for easy reference and understanding.
 
-1. Identity (what it is)
-2. Value (why it exists commercially)
-3. Context (dependencies)
-4. Obligations (what we must deliver)
-5. Costs (financial implications)
+**This is NOT a complete product list** — that is the domain of Odoo and ABS. Rather, it is a living reference that collates and organizes Product-Unit types to give them purpose and context.
 
-### Library Organization
+## Library Organization
 
-Product-Units are organized by category (from the four-category taxonomy):
+Product-Units are organized into **five categories**:
 
-- **Physical Product-Units** — Tangible assets (batteries, vehicles, chargers, accessories)
-- **Digital Product-Units** — App features, IoT capabilities, platform access
-- **Service Product-Units** — Recurring or one-time services (subscription services, maintenance, support)
-- **Contract Product-Units** — Entitlements and obligations (deposits, long-duration contracts, memberships)
+### 1. Physical Product-Units
+Tangible assets (batteries, vehicles, chargers, accessories) that can be serialized, tracked, and physically delivered.
 
-### Three Core Product-Unit Types (Proposed)
+### 2. Service Product-Units
+Recurring or one-time services (access-type and gage-type services) delivered through infrastructure and asset interactions.
 
-1. **Physical Product-Unit**  
-   Examples: LEV E3-Pro, S3, chargers, accessories
+### 3. Contract Product-Units
+Long-duration commitments and entitlements (Privilege, Warranty, Rental, Maintenance) that govern customer-business relationships.
 
-2. **Service Product-Unit**  
-   Example: Swap subscription service or other recurring service
+### 4. Digital Product-Units
+Media-type products (apps, digital content, IoT dashboards). Reserved for future use; not currently active.
 
-3. **Contract Product-Unit (Deposit-Based Entitlement)** *(critical building block)*  
-   A deposit-backed or contract-backed Product-Unit that grants the customer long-term access to a **pool of assets**, without tying them to a specific serial-numbered item.
+### 5. Composite Product-Units
+Odoo BoM-style combinations of **orthogonal elements** (e.g., motorbike + charger + helmet kit). 
 
-### The Missing Building Block: Deposit-Based Entitlement
+**Critical Distinction:**
 
-When a battery is issued to a customer, it is a high-value asset that must be financially safeguarded.
+- **Composite (Odoo context)**: Arbitrary combinations of orthogonal elements via Bill-of-Materials (BoM). Elements are independent and can be combined flexibly.
+- **Bundle (ABS context)**: Coherent groupings of **parallel service elements** that must work in tandem (e.g., Battery Circulation + Swap Network Access with matched durations). Bundles require functional coherence and synchronized operation.
 
-But the customer is:
-- **Not buying** a battery
-- **Not renting a specific one** either
+Composites are structurally flexible; bundles must make operational sense as integrated offerings.
 
-The cleanest commercial interpretation: **they place a deposit** to access the service and its assets.
+## Product-Unit Definition Framework
 
-**Key Question**: How do we structure and present this deposit value, especially at end-of-service?
+Each Product-Unit in this library is defined across five dimensions:
 
-Possible approaches:
-- **Refund** the deposit to the customer
-- **Convert** the deposit into value toward a physical item (e.g., discounted used battery)
-- **Liquidate** the deposit under clearly defined rules (e.g., if obligations are unmet)
+1. **Identity** — What it is (name, category, unique ID)
+2. **Value** — Why it exists commercially (customer value, business value, risk exposure)
+3. **Context** — Dependencies and prerequisites (customer state, asset availability, geographic coverage)
+4. **Obligations** — What we must deliver (SLAs, guarantees, support commitments)
+5. **Costs** — Financial implications (capital, operating, support costs)
+
+## Reference
+
+For the conceptual foundation of Product-Units, see:
+
+- [Product-Unit Model](../1-product-unit-model/1-structure.md) — Atomic commercial construct and five-dimensional framework
+- [Taxonomy](../1-product-unit-model/2-taxonomy.md) — Category definitions and classification rules
+- [Odoo System](../1-product-unit-model/4-odoo-system.md) — How Product-Units map to Odoo constructs

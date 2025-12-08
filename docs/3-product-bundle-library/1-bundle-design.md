@@ -1,10 +1,76 @@
-## Bundle Design
+# Bundle Design
 
-### Bundle Classification
+## Overview
+
+Bundles belong to the **ABS domain**.
+
+- **Odoo** handles **Product-Units (PUs)** as atomic line items in sales orders.
+- **ABS** designs and manages **bundles** as logical commercial constructs, then expands them into PUs before pushing to Odoo.
+
+A bundle is a **coherent set of services (and supporting PUs)** that must work together to deliver a specific business outcome. It is built on top of Service Product-Units but usually spans **multiple dimensions of the same physical assets**.
+
+### Multi-Dimensional Services on the Same Asset
+
+The same physical asset (e.g., a MotBat battery) can support several distinct service dimensions:
+
+- **Swap Count**  service metered by number of swaps
+- **Cycle Count**  service metered by full/partial charge-discharge cycles
+- **Rental Time**  service granting time-based usage rights
+- **Charging Service**  service providing energy and charging sessions
+- **Energy Metering**  service metering kWh dispensed
+
+Each of these is modeled as a **separate Service Product-Unit**, so that different business models (pricing, channels, obligations) can be engineered independently.
+
+### Parallel Infrastructure Services
+
+Depending on what the bundle is supposed to offer, **other parallel services must be present** and correctly bundled. Examples:
+
+- A **Swap Service** must be paired with:
+  - **Swap Network Access** (service PU)
+  - **Battery Circulation** (service PU)
+  - **Operational Readiness** (swap stations, attendants, logistics)
+- A **Battery Rental** must be paired with:
+  - **Charging Service** (service PU)
+  - Optionally **Energy Metering** (service PU) if energy dispensed needs to be gaged
+
+Behind the scenes, this implies:
+
+- Battery circulation is physically available from the prescribed Swap Network.
+- Swap Network is deployed at the right locations.
+- Attendant crew and operational staff are on duty.
+- Commercial and operational deals have been set up between parties.
+
+Bundles therefore encode not just **commercial packaging**, but also **infrastructure assumptions and dependencies**.
+
+## BSS (Battery Swap Service) as Primary Use Case
+
+The first major business model is **Battery Swap Service (BSS)**. BSS bundles typically combine:
+
+- **Privilege Contracts** (Swap Privilege for specific motorbike/battery models)
+- **Access-Type Services** (Battery Swap Access, Swap Network Access, Charging Network Access)
+- **Gage-Type Services** (Swap Usage, Energy Usage)
+- **Supporting Physical PUs** (MotBat batteries, chargers, motorbikes)
+
+BSS bundles must ensure that:
+
+- Swap infrastructure is deployed and available.
+- Battery circulation pool is sized appropriately for demand.
+- Swap Network and Charging Network are coordinated.
+- Privilege, access, and usage services are aligned in duration and scope.
+
+The design of BSS bundles should always start from:
+
+1. **Business intent**  what mission or use case we are enabling (e.g., last-mile delivery, ride-hailing, commuter use).
+2. **Required services**  which service dimensions on the same assets are needed (swap, rental, charging, energy metering).
+3. **Infrastructure prerequisites**  what networks and circulation services must be active.
+
+---
+
+## Bundle Classification
 
 Bundles are classified by their primary design intent:
 
-#### 1. Logical Grouping Bundles
+### 1. Logical Grouping Bundles
 
 Product-Units that naturally belong together for functional or operational reasons.
 
@@ -18,7 +84,7 @@ Product-Units that naturally belong together for functional or operational reaso
 - Rarely sold separately in practice
 - Simplifies inventory and fulfillment
 
-#### 2. Value Proposition Bundles
+### 2. Value Proposition Bundles
 
 Created to address specific customer use cases or economic incentives.
 
@@ -32,7 +98,7 @@ Created to address specific customer use cases or economic incentives.
 - Provides economic discount vs. individual purchase
 - Addresses complete workflow or use case
 
-#### 3. Channel-Specific Bundles
+### 3. Channel-Specific Bundles
 
 Optimized for specific sales channels or distribution models.
 
@@ -46,7 +112,7 @@ Optimized for specific sales channels or distribution models.
 - Simplified for channel training
 - Pre-configured for channel pricing rules
 
-#### 4. Mission/Use-Case Bundles
+### 4. Mission/Use-Case Bundles
 
 Designed around specific customer missions or operational scenarios.
 
@@ -60,7 +126,7 @@ Designed around specific customer missions or operational scenarios.
 - May include specialized configurations
 - Higher value, longer decision cycle
 
-### Bundle Hierarchy
+## Bundle Hierarchy
 
 Bundles can contain:
 - **Base Product-Units** (atomic elements)
@@ -74,11 +140,11 @@ Bundles can contain:
 
 ---
 
-### Complexity & Pitfalls of Bundling
+## Complexity & Pitfalls of Bundling
 
 This section must be part of every bundling design.
 
-#### 1. Hidden Obligations
+### 1. Hidden Obligations
 
 **Risk:**
 Bundling components may create unforeseen obligations or service-level requirements.
@@ -94,7 +160,7 @@ Bundling components may create unforeseen obligations or service-level requireme
 - Include obligation limits in contract terms
 - Train agents on scope boundaries
 
-#### 2. Misaligned Cost/Value
+### 2. Misaligned Cost/Value
 
 **Risk:**
 Bundle pricing may not reflect true cost structure or value delivery.
@@ -110,7 +176,7 @@ Bundle pricing may not reflect true cost structure or value delivery.
 - Monitor actual delivery costs post-launch
 - Adjust pricing or composition based on data
 
-#### 3. Bundles That Break Automation Logic
+### 3. Bundles That Break Automation Logic
 
 **Risk:**
 Bundle structure conflicts with Odoo/OVApp workflows or data models.
@@ -127,7 +193,7 @@ Bundle structure conflicts with Odoo/OVApp workflows or data models.
 - Document system limitations
 - Design bundles within known system constraints
 
-#### 4. Customer Misunderstandings
+### 4. Customer Misunderstandings
 
 **Risk:**
 Customers don't understand what's included, leading to dissatisfaction or disputes.
@@ -145,7 +211,7 @@ Customers don't understand what's included, leading to dissatisfaction or disput
 - Test customer comprehension before launch
 - Include bundle details in contract and confirmation
 
-#### 5. Over-Complexity for Agents
+### 5. Over-Complexity for Agents
 
 **Risk:**
 Agents struggle to explain, quote, or sell bundles effectively.
@@ -163,7 +229,7 @@ Agents struggle to explain, quote, or sell bundles effectively.
 - Simplify eligibility rules
 - Test agent comprehension during training
 
-### Bundle Design Checklist
+## Bundle Design Checklist
 
 Before launching any bundle, validate:
 
