@@ -2027,6 +2027,15 @@ Each ServicePlanTemplate references one of the 9 bundles defined above, plus con
 | Terms | 3 | 1-day, 7-day, 30-day contract terms (standard tier) |
 | Plans (ServicePlanTemplate) | 9 | Each plan links to one bundle, one terms object, plus FSM configs and service quotas/overage rules |
 
+---
+
+## ⚠️ WARNING: LEGACY DATA - DO NOT USE ⚠️
+
+The following service, bundle, terms, and plan records are **legacy data from an earlier modeling iteration** and **should not be used**. They are retained here for historical reference only.
+
+**Use Section 7 (above) for all current ABS setup data.**
+
+---
 
 #### Service: 45Ah Battery Circulation Access – Swap Network
 
