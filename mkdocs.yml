@@ -109,6 +109,7 @@ nav:
       - 7-market-specific-models/index.md
   - Integration & DevOps:
       - 8-integration-devops/index.md
+      - BSS Setup Data Types: 8-integration-devops/2-bss-setup-data-types.md
   - Appendix:
       - 9-appendix/index.md
       - Glossary: 9-appendix/1-glossary.md

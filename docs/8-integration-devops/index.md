@@ -64,7 +64,13 @@ How Product-Units map into digital systems:
 
 ---
 
-### 2. Odoo Integration
+### 2. BSS Setup Data Types
+
+See [BSS Setup Data Types](2-bss-setup-data-types.md) for service and bundle data structures used in ABS Platform.
+
+---
+
+### 3. Odoo Integration
 
 See [Odoo Models](../5-transactional-models/6-odoo-models.md) for core data structures. This section documents integration responsibilities and patterns.
 
@@ -104,7 +110,7 @@ Odoo serves as the **commercial transaction system** for OVES, handling:
 
 ---
 
-### 3. OVApp & IoT Integration (Stubs)
+### 4. OVApp & IoT Integration (Stubs)
 
 These sections will later capture OVApp-specific and IoT-specific integration patterns:
 

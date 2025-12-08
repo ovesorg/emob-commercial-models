@@ -6,6 +6,8 @@ Odoo serves as the **commercial transaction system** for OVES, handling customer
 
 For detailed Odoo model specifications, see **[Section 5: Transactional Models - Odoo Models](../5-transactional-models/6-odoo-models.md)**.
 
+For BSS service and bundle data structures in ABS Platform, see **[BSS Setup Data Types](2-bss-setup-data-types.md)**.
+
 ---
 
 ## Integration Architecture
