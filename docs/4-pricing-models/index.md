@@ -14,6 +14,6 @@ We focus on **retail pricing and costing** at a conceptual level only, since the
 
 ## Structure
 
-- **Pricing Types**  How different pricing dimensions (retail, subscription, usage-based) are expressed in Odoo.
-- **Channel Pricing**  Options for agent/partner pricing, including trade margin, commission, and revenue share strategies.
-- **Price Governance**  Controls for pricing integrity, approvals, and propagation consistency (including ABS service unit prices).
+- **Pricing Types**   How pricing dimensions (retail, B2B, and channel models) are expressed in Odoo.
+- **Price Management**   Governance for pricing integrity, approvals, discount control, and Odoo  ABS price propagation.
+- **Risks & Controls**   Risk highlights in swap-based models and the pricing, contract, and technical controls used to mitigate them.

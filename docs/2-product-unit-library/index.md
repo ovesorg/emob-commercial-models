@@ -50,6 +50,6 @@ Each Product-Unit in this library is defined across five dimensions:
 
 For the conceptual foundation of Product-Units, see:
 
-- [Product-Unit Model](../1-product-unit-model/1-structure.md) — Atomic commercial construct and five-dimensional framework
+- [Product-Unit Model](../1-product-unit-model/1-concepts.md) — Atomic commercial construct and five-dimensional framework
 - [Taxonomy](../1-product-unit-model/2-taxonomy.md) — Category definitions and classification rules
 - [Odoo System](../1-product-unit-model/4-odoo-system.md) — How Product-Units map to Odoo constructs

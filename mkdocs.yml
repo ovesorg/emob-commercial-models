@@ -44,19 +44,6 @@ markdown_extensions:
 
 plugins:
   - search
-  - i18n:
-      docs_structure: folder
-      languages:
-        - locale: en
-          default: true
-          name: English
-          build: true
-        - locale: zh
-          name: 中文
-          build: true
-        - locale: fr
-          name: Français
-          build: true
 
 nav:
   - Home: index.md
@@ -85,8 +72,8 @@ nav:
   - Pricing Models:
       - 4-pricing-models/index.md
       - Pricing Types: 4-pricing-models/1-pricing-types.md
-      - Channel Pricing: 4-pricing-models/2-channel-pricing.md
-      - Price Governance: 4-pricing-models/3-price-governance.md
+      - Price Management: 4-pricing-models/2-price-management.md
+      - Risks & Controls: 4-pricing-models/3-risks-and controls.md
   - Transactional Models:
       - 5-transactional-models/index.md
       - Sales Order: 5-transactional-models/1-sales-order.md

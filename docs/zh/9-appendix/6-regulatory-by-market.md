@@ -1,1 +1,0 @@
-## Regulatory by Market
