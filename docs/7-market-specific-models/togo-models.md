@@ -13,6 +13,39 @@ This document maps Togo team inputs into **Product-Units (PUs)** and **bundles**
 
 ---
 
+### 1.1 Recent Updates (2025-12-16)
+
+**Service Metric/Unit Convention Refactoring**
+- Updated all service instances to physical-dimension semantics:
+  - `usage_metric`: `ACCESS | CONSUMPTION` → `DURATION | COUNT | ENERGY | DISTANCE`
+  - `usage_unit`: `boolean | swaps | kWh` → `HOUR | DAY | 1 | 1K | 1M | kWh | KM`
+
+**New Service Type: Asset-Assignment**
+- Introduced `asset-assignment` service type (ABS-level)
+- Characteristics: `usage_metric: DURATION`, `usage_unit: DAY`, `asset_type: ITEM`
+- Binds vehicle ITEM ID from THING (DIRAC/ARM) to service plan at sales order creation
+- Purpose: Runtime realization of Contract PUs (WARRANTY, PRIVILEGE, RENTAL)
+
+**12-Month Services and Bundle Added**
+- **Asset-Assignment Services** (Section 7.2.1):
+  - `service-asset-assignment-e3h-12month`
+  - `service-asset-assignment-e3pro-12month`
+  - `service-asset-assignment-s6h-12month`
+- **Access Services** (Section 7.2.2):
+  - `service-battery-circulation-access-mobbat-45ah-12month` (365 days)
+  - `service-swap-network-access-12month` (365 days)
+- **Bundle** (Section 7.2.3):
+  - `bundle-lome-e3h-12month`: Complete 12-month E3H swap bundle with Battery Circulation (45Ah), Swap Network, Energy Gage, and E3H Asset-Assignment
+
+**Odoo Product-Units Created**
+- **Physical PU**: LEV E3H motorbike
+- **Contract PUs**:
+  - Swap Privilege – MotBat 45Ah – 12 Months
+  - Asset-Assignment – E3H – 12 Months
+- **Composite PU**: E3H Vehicle + Service Privilege Package – 12M (combines E3H + 45Ah Privilege + E3H Asset-Assignment)
+
+---
+
 ### 2. Togo Service Product-Units
 
 #### 2.1 45Ah Battery Circulation Access (Swap Network) (Service PU)
@@ -336,8 +369,8 @@ This subsection defines the actual ABS BSS service setup data for Togo (Lomé). 
   "description": "Grants 1-day access to the MobBat 30Ah Battery Circulation Fleet in Lomé.",
   "asset_type": "FLEET",
   "asset_reference": "fleet-battery-circulation-mobbat-30ah-tg-lome",
-  "usage_metric": "ACCESS",
-  "usage_unit": "boolean",
+  "usage_metric": "DURATION",
+  "usage_unit": "DAY",
   "usage_unit_price": 0.00,
   "_comment_usage_unit_price": "Access service, pricing handled at bundle/plan level",
   "access_control": {
@@ -369,8 +402,8 @@ This subsection defines the actual ABS BSS service setup data for Togo (Lomé). 
   "description": "Grants 7-day access to the MobBat 30Ah Battery Circulation Fleet in Lomé.",
   "asset_type": "FLEET",
   "asset_reference": "fleet-battery-circulation-mobbat-30ah-tg-lome",
-  "usage_metric": "ACCESS",
-  "usage_unit": "boolean",
+  "usage_metric": "DURATION",
+  "usage_unit": "DAY",
   "usage_unit_price": 0.00,
   "_comment_usage_unit_price": "Access service, pricing handled at bundle/plan level",
   "access_control": {
@@ -402,8 +435,8 @@ This subsection defines the actual ABS BSS service setup data for Togo (Lomé). 
   "description": "Grants 30-day access to the MobBat 30Ah Battery Circulation Fleet in Lomé.",
   "asset_type": "FLEET",
   "asset_reference": "fleet-battery-circulation-mobbat-30ah-tg-lome",
-  "usage_metric": "ACCESS",
-  "usage_unit": "boolean",
+  "usage_metric": "DURATION",
+  "usage_unit": "DAY",
   "usage_unit_price": 0.00,
   "_comment_usage_unit_price": "Access service, pricing handled at bundle/plan level",
   "access_control": {
@@ -435,8 +468,8 @@ This subsection defines the actual ABS BSS service setup data for Togo (Lomé). 
   "description": "Grants 1-day access to the MobBat 45Ah Battery Circulation Fleet in Lomé.",
   "asset_type": "FLEET",
   "asset_reference": "fleet-battery-circulation-mobbat-45ah-tg-lome",
-  "usage_metric": "ACCESS",
-  "usage_unit": "boolean",
+  "usage_metric": "DURATION",
+  "usage_unit": "DAY",
   "usage_unit_price": 0.00,
   "_comment_usage_unit_price": "Access service, pricing handled at bundle/plan level",
   "access_control": {
@@ -468,8 +501,8 @@ This subsection defines the actual ABS BSS service setup data for Togo (Lomé). 
   "description": "Grants 7-day access to the MobBat 45Ah Battery Circulation Fleet in Lomé.",
   "asset_type": "FLEET",
   "asset_reference": "fleet-battery-circulation-mobbat-45ah-tg-lome",
-  "usage_metric": "ACCESS",
-  "usage_unit": "boolean",
+  "usage_metric": "DURATION",
+  "usage_unit": "DAY",
   "usage_unit_price": 0.00,
   "_comment_usage_unit_price": "Access service, pricing handled at bundle/plan level",
   "access_control": {
@@ -501,8 +534,8 @@ This subsection defines the actual ABS BSS service setup data for Togo (Lomé). 
   "description": "Grants 30-day access to the MobBat 45Ah Battery Circulation Fleet in Lomé.",
   "asset_type": "FLEET",
   "asset_reference": "fleet-battery-circulation-mobbat-45ah-tg-lome",
-  "usage_metric": "ACCESS",
-  "usage_unit": "boolean",
+  "usage_metric": "DURATION",
+  "usage_unit": "DAY",
   "usage_unit_price": 0.00,
   "_comment_usage_unit_price": "Access service, pricing handled at bundle/plan level",
   "access_control": {
@@ -534,8 +567,8 @@ This subsection defines the actual ABS BSS service setup data for Togo (Lomé). 
   "description": "Grants 1-day access to the MobBat 100Ah Battery Circulation Fleet in Lomé.",
   "asset_type": "FLEET",
   "asset_reference": "fleet-battery-circulation-mobbat-100ah-tg-lome",
-  "usage_metric": "ACCESS",
-  "usage_unit": "boolean",
+  "usage_metric": "DURATION",
+  "usage_unit": "DAY",
   "usage_unit_price": 0.00,
   "_comment_usage_unit_price": "Access service, pricing handled at bundle/plan level",
   "access_control": {
@@ -567,8 +600,8 @@ This subsection defines the actual ABS BSS service setup data for Togo (Lomé). 
   "description": "Grants 7-day access to the MobBat 100Ah Battery Circulation Fleet in Lomé.",
   "asset_type": "FLEET",
   "asset_reference": "fleet-battery-circulation-mobbat-100ah-tg-lome",
-  "usage_metric": "ACCESS",
-  "usage_unit": "boolean",
+  "usage_metric": "DURATION",
+  "usage_unit": "DAY",
   "usage_unit_price": 0.00,
   "_comment_usage_unit_price": "Access service, pricing handled at bundle/plan level",
   "access_control": {
@@ -600,8 +633,8 @@ This subsection defines the actual ABS BSS service setup data for Togo (Lomé). 
   "description": "Grants 30-day access to the MobBat 100Ah Battery Circulation Fleet in Lomé.",
   "asset_type": "FLEET",
   "asset_reference": "fleet-battery-circulation-mobbat-100ah-tg-lome",
-  "usage_metric": "ACCESS",
-  "usage_unit": "boolean",
+  "usage_metric": "DURATION",
+  "usage_unit": "DAY",
   "usage_unit_price": 0.00,
   "_comment_usage_unit_price": "Access service, pricing handled at bundle/plan level",
   "access_control": {
@@ -633,8 +666,8 @@ This subsection defines the actual ABS BSS service setup data for Togo (Lomé). 
   "description": "Grants 1-day access to the Lomé Swap Network.",
   "asset_type": "FLEET",
   "asset_reference": "fleet-swap-network-tg-lome",
-  "usage_metric": "ACCESS",
-  "usage_unit": "boolean",
+  "usage_metric": "DURATION",
+  "usage_unit": "DAY",
   "usage_unit_price": 0.00,
   "_comment_usage_unit_price": "Access service, pricing handled at bundle/plan level",
   "access_control": {
@@ -666,8 +699,8 @@ This subsection defines the actual ABS BSS service setup data for Togo (Lomé). 
   "description": "Grants 7-day access to the Lomé Swap Network.",
   "asset_type": "FLEET",
   "asset_reference": "fleet-swap-network-tg-lome",
-  "usage_metric": "ACCESS",
-  "usage_unit": "boolean",
+  "usage_metric": "DURATION",
+  "usage_unit": "DAY",
   "usage_unit_price": 0.00,
   "_comment_usage_unit_price": "Access service, pricing handled at bundle/plan level",
   "access_control": {
@@ -699,8 +732,8 @@ This subsection defines the actual ABS BSS service setup data for Togo (Lomé). 
   "description": "Grants 30-day access to the Lomé Swap Network.",
   "asset_type": "FLEET",
   "asset_reference": "fleet-swap-network-tg-lome",
-  "usage_metric": "ACCESS",
-  "usage_unit": "boolean",
+  "usage_metric": "DURATION",
+  "usage_unit": "DAY",
   "usage_unit_price": 0.00,
   "_comment_usage_unit_price": "Access service, pricing handled at bundle/plan level",
   "access_control": {
@@ -732,7 +765,7 @@ This subsection defines the actual ABS BSS service setup data for Togo (Lomé). 
   "description": "Measures and records energy consumption in kWh associated with Battery Circulation usage in Lomé.",
   "asset_type": "ITEM",
   "asset_reference": "energy-consumption-tg-lome",
-  "usage_metric": "CONSUMPTION",
+  "usage_metric": "ENERGY",
   "usage_unit": "kWh",
   "usage_unit_price": 0.00,
   "_comment_usage_unit_price": "Price per kWh for overage charges, if applicable",
@@ -766,7 +799,7 @@ This subsection defines the actual ABS BSS service setup data for Togo (Lomé). 
   "asset_type": "ITEM",
   "asset_reference": "swap-transactions-tg-lome",
   "usage_metric": "COUNT",
-  "usage_unit": "swaps",
+  "usage_unit": "1",
   "usage_unit_price": 0.00,
   "_comment_usage_unit_price": "Price per swap for overage charges, if applicable",
   "access_control": {
@@ -1236,7 +1269,7 @@ Each ServicePlanTemplate references one of the 9 bundles defined above, plus con
       "auto_renewal": false,
       "overage_allowed": false,
       "overage_rate": null,
-      "_comment": "Access service, boolean flag for 1-day period"
+      "_comment": "Access service, entitlement flag for 1-day period"
     },
     {
       "service_id": "service-swap-network-access-1day",
@@ -1246,7 +1279,7 @@ Each ServicePlanTemplate references one of the 9 bundles defined above, plus con
       "auto_renewal": false,
       "overage_allowed": false,
       "overage_rate": null,
-      "_comment": "Swap Network access, boolean flag for 1-day period"
+      "_comment": "Swap Network access, entitlement flag for 1-day period"
     },
     {
       "service_id": "service-energy-gage",
@@ -1327,7 +1360,7 @@ Each ServicePlanTemplate references one of the 9 bundles defined above, plus con
       "auto_renewal": false,
       "overage_allowed": false,
       "overage_rate": null,
-      "_comment": "Access service, boolean flag for 7-day period"
+      "_comment": "Access service, entitlement flag for 7-day period"
     },
     {
       "service_id": "service-swap-network-access-7day",
@@ -1337,7 +1370,7 @@ Each ServicePlanTemplate references one of the 9 bundles defined above, plus con
       "auto_renewal": false,
       "overage_allowed": false,
       "overage_rate": null,
-      "_comment": "Swap Network access, boolean flag for 7-day period"
+      "_comment": "Swap Network access, entitlement flag for 7-day period"
     },
     {
       "service_id": "service-energy-gage",
@@ -1418,7 +1451,7 @@ Each ServicePlanTemplate references one of the 9 bundles defined above, plus con
       "auto_renewal": false,
       "overage_allowed": false,
       "overage_rate": null,
-      "_comment": "Access service, boolean flag for 30-day period"
+      "_comment": "Access service, entitlement flag for 30-day period"
     },
     {
       "service_id": "service-swap-network-access-30day",
@@ -1428,7 +1461,7 @@ Each ServicePlanTemplate references one of the 9 bundles defined above, plus con
       "auto_renewal": false,
       "overage_allowed": false,
       "overage_rate": null,
-      "_comment": "Swap Network access, boolean flag for 30-day period"
+      "_comment": "Swap Network access, entitlement flag for 30-day period"
     },
     {
       "service_id": "service-energy-gage",
@@ -1509,7 +1542,7 @@ Each ServicePlanTemplate references one of the 9 bundles defined above, plus con
       "auto_renewal": false,
       "overage_allowed": false,
       "overage_rate": null,
-      "_comment": "Access service, boolean flag for 1-day period"
+      "_comment": "Access service, entitlement flag for 1-day period"
     },
     {
       "service_id": "service-swap-network-access-1day",
@@ -1519,7 +1552,7 @@ Each ServicePlanTemplate references one of the 9 bundles defined above, plus con
       "auto_renewal": false,
       "overage_allowed": false,
       "overage_rate": null,
-      "_comment": "Swap Network access, boolean flag for 1-day period"
+      "_comment": "Swap Network access, entitlement flag for 1-day period"
     },
     {
       "service_id": "service-energy-gage",
@@ -1600,7 +1633,7 @@ Each ServicePlanTemplate references one of the 9 bundles defined above, plus con
       "auto_renewal": false,
       "overage_allowed": false,
       "overage_rate": null,
-      "_comment": "Access service, boolean flag for 7-day period"
+      "_comment": "Access service, entitlement flag for 7-day period"
     },
     {
       "service_id": "service-swap-network-access-7day",
@@ -1610,7 +1643,7 @@ Each ServicePlanTemplate references one of the 9 bundles defined above, plus con
       "auto_renewal": false,
       "overage_allowed": false,
       "overage_rate": null,
-      "_comment": "Swap Network access, boolean flag for 7-day period"
+      "_comment": "Swap Network access, entitlement flag for 7-day period"
     },
     {
       "service_id": "service-energy-gage",
@@ -1691,7 +1724,7 @@ Each ServicePlanTemplate references one of the 9 bundles defined above, plus con
       "auto_renewal": false,
       "overage_allowed": false,
       "overage_rate": null,
-      "_comment": "Access service, boolean flag for 30-day period"
+      "_comment": "Access service, entitlement flag for 30-day period"
     },
     {
       "service_id": "service-swap-network-access-30day",
@@ -1701,7 +1734,7 @@ Each ServicePlanTemplate references one of the 9 bundles defined above, plus con
       "auto_renewal": false,
       "overage_allowed": false,
       "overage_rate": null,
-      "_comment": "Swap Network access, boolean flag for 30-day period"
+      "_comment": "Swap Network access, entitlement flag for 30-day period"
     },
     {
       "service_id": "service-energy-gage",
@@ -1782,7 +1815,7 @@ Each ServicePlanTemplate references one of the 9 bundles defined above, plus con
       "auto_renewal": false,
       "overage_allowed": false,
       "overage_rate": null,
-      "_comment": "Access service, boolean flag for 1-day period"
+      "_comment": "Access service, entitlement flag for 1-day period"
     },
     {
       "service_id": "service-swap-network-access-1day",
@@ -1792,7 +1825,7 @@ Each ServicePlanTemplate references one of the 9 bundles defined above, plus con
       "auto_renewal": false,
       "overage_allowed": false,
       "overage_rate": null,
-      "_comment": "Swap Network access, boolean flag for 1-day period"
+      "_comment": "Swap Network access, entitlement flag for 1-day period"
     },
     {
       "service_id": "service-energy-gage",
@@ -1873,7 +1906,7 @@ Each ServicePlanTemplate references one of the 9 bundles defined above, plus con
       "auto_renewal": false,
       "overage_allowed": false,
       "overage_rate": null,
-      "_comment": "Access service, boolean flag for 7-day period"
+      "_comment": "Access service, entitlement flag for 7-day period"
     },
     {
       "service_id": "service-swap-network-access-7day",
@@ -1883,7 +1916,7 @@ Each ServicePlanTemplate references one of the 9 bundles defined above, plus con
       "auto_renewal": false,
       "overage_allowed": false,
       "overage_rate": null,
-      "_comment": "Swap Network access, boolean flag for 7-day period"
+      "_comment": "Swap Network access, entitlement flag for 7-day period"
     },
     {
       "service_id": "service-energy-gage",
@@ -1964,7 +1997,7 @@ Each ServicePlanTemplate references one of the 9 bundles defined above, plus con
       "auto_renewal": false,
       "overage_allowed": false,
       "overage_rate": null,
-      "_comment": "Access service, boolean flag for 30-day period"
+      "_comment": "Access service, entitlement flag for 30-day period"
     },
     {
       "service_id": "service-swap-network-access-30day",
@@ -1974,7 +2007,7 @@ Each ServicePlanTemplate references one of the 9 bundles defined above, plus con
       "auto_renewal": false,
       "overage_allowed": false,
       "overage_rate": null,
-      "_comment": "Swap Network access, boolean flag for 30-day period"
+      "_comment": "Swap Network access, entitlement flag for 30-day period"
     },
     {
       "service_id": "service-energy-gage",
@@ -2056,8 +2089,8 @@ The following service, bundle, terms, and plan records are **legacy data from an
   "description": "Access to the Lomé Swap Network using the 45Ah Battery Circulation pool for 2- and 3-wheelers",
   "asset_type": "FLEET",
   "asset_reference": "fleet-swap-stations-lome-45ah",
-  "usage_metric": "ACCESS",
-  "usage_unit": "boolean",
+  "usage_metric": "DURATION",
+  "usage_unit": "DAY",
   "usage_unit_price": 0.00,
   "_comment_usage_unit_price": "Access service, pricing handled at bundle/plan level",
   "access_control": {
@@ -2090,8 +2123,8 @@ The following service, bundle, terms, and plan records are **legacy data from an
   "description": "Access to the Lomé Swap Network using the 100Ah Battery Circulation pool for 2- and 3-wheelers",
   "asset_type": "FLEET",
   "asset_reference": "fleet-swap-stations-lome-100ah",
-  "usage_metric": "ACCESS",
-  "usage_unit": "boolean",
+  "usage_metric": "DURATION",
+  "usage_unit": "DAY",
   "usage_unit_price": 0.00,
   "_comment_usage_unit_price": "Access service, pricing handled at bundle/plan level",
   "access_control": {
@@ -2124,8 +2157,8 @@ The following service, bundle, terms, and plan records are **legacy data from an
   "description": "Access to 45Ah battery circulation pool for swap operations",
   "asset_type": "FLEET",
   "asset_reference": "fleet-batteries-45ah-togo",
-  "usage_metric": "ACCESS",
-  "usage_unit": "boolean",
+  "usage_metric": "DURATION",
+  "usage_unit": "DAY",
   "usage_unit_price": 0.00,
   "_comment_usage_unit_price": "Access service, pricing handled at bundle/plan level",
   "access_control": {
@@ -2157,8 +2190,8 @@ The following service, bundle, terms, and plan records are **legacy data from an
   "description": "Access to 100Ah battery circulation pool for swap operations",
   "asset_type": "FLEET",
   "asset_reference": "fleet-batteries-100ah-togo",
-  "usage_metric": "ACCESS",
-  "usage_unit": "boolean",
+  "usage_metric": "DURATION",
+  "usage_unit": "DAY",
   "usage_unit_price": 0.00,
   "_comment_usage_unit_price": "Access service, pricing handled at bundle/plan level",
   "access_control": {
@@ -2191,7 +2224,7 @@ The following service, bundle, terms, and plan records are **legacy data from an
   "asset_type": "ITEM",
   "asset_reference": "swap-transactions-45ah-togo",
   "usage_metric": "COUNT",
-  "usage_unit": "swaps",
+  "usage_unit": "1",
   "usage_unit_price": 1200.00,
   "_comment_usage_unit_price": "1,200 XOF per swap (overage rate, derived from B45-1 bundle)",
   "access_control": {
@@ -2224,7 +2257,7 @@ The following service, bundle, terms, and plan records are **legacy data from an
   "asset_type": "ITEM",
   "asset_reference": "swap-transactions-100ah-togo",
   "usage_metric": "COUNT",
-  "usage_unit": "swaps",
+  "usage_unit": "1",
   "usage_unit_price": 2400.00,
   "_comment_usage_unit_price": "2,400 XOF per swap (overage rate, derived from B100-1 bundle)",
   "access_control": {
@@ -2256,7 +2289,7 @@ The following service, bundle, terms, and plan records are **legacy data from an
   "description": "Battery electricity quota allocation for 45Ah based on kilowatt-hour consumption",
   "asset_type": "ITEM",
   "asset_reference": "electricity-pool-45ah-togo",
-  "usage_metric": "CONSUMPTION",
+  "usage_metric": "ENERGY",
   "usage_unit": "kWh",
   "usage_unit_price": 0.00,
   "_comment_usage_unit_price": "PENDING COMMERCIAL TEAM INPUT - Price per kWh for overage charges",
@@ -2289,7 +2322,7 @@ The following service, bundle, terms, and plan records are **legacy data from an
   "description": "Battery electricity quota allocation for 100Ah based on kilowatt-hour consumption",
   "asset_type": "ITEM",
   "asset_reference": "electricity-pool-100ah-togo",
-  "usage_metric": "CONSUMPTION",
+  "usage_metric": "ENERGY",
   "usage_unit": "kWh",
   "usage_unit_price": 0.00,
   "_comment_usage_unit_price": "PENDING COMMERCIAL TEAM INPUT - Price per kWh for overage charges",
@@ -2302,6 +2335,219 @@ The following service, bundle, terms, and plan records are **legacy data from an
   "updated_at": "2025-12-08T10:00:00Z"
 }
 ```
+
+---
+
+### 7.2.1 Asset Assignment Services (12-Month)
+
+#### Service: Asset Assignment – E3H – 12 Months
+
+**Filename**: `bss-lome-service-asset-assignment-e3h-12month.json`
+
+```json
+{
+  "_meta": {
+    "service_model": "bss",
+    "entity_type": "service",
+    "market": "lome",
+    "entity_name": "asset-assignment-e3h-12month",
+    "version": null,
+    "filename_pattern": "{model}-{market}-{entity_type}-{entity_name}.json"
+  },
+  "id": "service-asset-assignment-e3h-12month",
+  "name": "Asset Assignment – E3H – 12 Months",
+  "description": "12-month (365-day) time-bounded assignment of E3H vehicle to swap service plan, binding vehicle ITEM ID from THING to service entitlements",
+  "asset_type": "ITEM",
+  "asset_reference": "vehicle-e3h",
+  "usage_metric": "DURATION",
+  "usage_unit": "DAY",
+  "usage_unit_price": 0.00,
+  "_comment_usage_unit_price": "Asset assignment is priced at plan level, not per day",
+  "access_control": {
+    "assignment_duration_days": 365,
+    "vehicle_model": "E3H",
+    "requires_concrete_item_id": true,
+    "binding_time": "SALES_ORDER_CREATION"
+  },
+  "created_at": "2025-12-16T00:00:00Z",
+  "updated_at": "2025-12-16T00:00:00Z"
+}
+```
+
+#### Service: Asset Assignment – E3PRO – 12 Months
+
+**Filename**: `bss-lome-service-asset-assignment-e3pro-12month.json`
+
+```json
+{
+  "_meta": {
+    "service_model": "bss",
+    "entity_type": "service",
+    "market": "lome",
+    "entity_name": "asset-assignment-e3pro-12month",
+    "version": null,
+    "filename_pattern": "{model}-{market}-{entity_type}-{entity_name}.json"
+  },
+  "id": "service-asset-assignment-e3pro-12month",
+  "name": "Asset Assignment – E3PRO – 12 Months",
+  "description": "12-month (365-day) time-bounded assignment of E3PRO vehicle to swap service plan, binding vehicle ITEM ID from THING to service entitlements",
+  "asset_type": "ITEM",
+  "asset_reference": "vehicle-e3pro",
+  "usage_metric": "DURATION",
+  "usage_unit": "DAY",
+  "usage_unit_price": 0.00,
+  "_comment_usage_unit_price": "Asset assignment is priced at plan level, not per day",
+  "access_control": {
+    "assignment_duration_days": 365,
+    "vehicle_model": "E3PRO",
+    "requires_concrete_item_id": true,
+    "binding_time": "SALES_ORDER_CREATION"
+  },
+  "created_at": "2025-12-16T00:00:00Z",
+  "updated_at": "2025-12-16T00:00:00Z"
+}
+```
+
+#### Service: Asset Assignment – S6H – 12 Months
+
+**Filename**: `bss-lome-service-asset-assignment-s6h-12month.json`
+
+```json
+{
+  "_meta": {
+    "service_model": "bss",
+    "entity_type": "service",
+    "market": "lome",
+    "entity_name": "asset-assignment-s6h-12month",
+    "version": null,
+    "filename_pattern": "{model}-{market}-{entity_type}-{entity_name}.json"
+  },
+  "id": "service-asset-assignment-s6h-12month",
+  "name": "Asset Assignment – S6H – 12 Months",
+  "description": "12-month (365-day) time-bounded assignment of S6H vehicle to swap service plan, binding vehicle ITEM ID from THING to service entitlements",
+  "asset_type": "ITEM",
+  "asset_reference": "vehicle-s6h",
+  "usage_metric": "DURATION",
+  "usage_unit": "DAY",
+  "usage_unit_price": 0.00,
+  "_comment_usage_unit_price": "Asset assignment is priced at plan level, not per day",
+  "access_control": {
+    "assignment_duration_days": 365,
+    "vehicle_model": "S6H",
+    "requires_concrete_item_id": true,
+    "binding_time": "SALES_ORDER_CREATION"
+  },
+  "created_at": "2025-12-16T00:00:00Z",
+  "updated_at": "2025-12-16T00:00:00Z"
+}
+```
+
+---
+
+### 7.2.2 Battery Circulation Access Services (12-Month)
+
+#### Service: Battery Circulation Access – MobBat 45Ah – 12 Months
+
+**Filename**: `bss-lome-service-battery-circulation-access-mobbat-45ah-12month.json`
+
+```json
+{
+  "_meta": {
+    "service_model": "bss",
+    "entity_type": "service",
+    "market": "lome",
+    "entity_name": "battery-circulation-access-mobbat-45ah-12month",
+    "version": null,
+    "filename_pattern": "{model}-{market}-{entity_type}-{entity_name}.json"
+  },
+  "id": "service-battery-circulation-access-mobbat-45ah-12month",
+  "name": "MobBat 45Ah Battery Circulation Access – 12 Months",
+  "description": "Grants 12-month (365-day) access to the MobBat 45Ah Battery Circulation Fleet in Lomé.",
+  "asset_type": "FLEET",
+  "asset_reference": "fleet-battery-circulation-mobbat-45ah-tg-lome",
+  "usage_metric": "DURATION",
+  "usage_unit": "DAY",
+  "usage_unit_price": 0.00,
+  "_comment_usage_unit_price": "Access service, pricing handled at bundle/plan level",
+  "access_control": {
+    "battery_family_code": "MOBBAT-45AH",
+    "fleet_scope": "TG-LOME",
+    "requires_active_swap_network": true,
+    "access_duration_days": 365
+  },
+  "created_at": "2025-12-16T00:00:00Z",
+  "updated_at": "2025-12-16T00:00:00Z"
+}
+```
+
+#### Service: Swap Network Access – 12 Months
+
+**Filename**: `bss-lome-service-swap-network-access-12month.json`
+
+```json
+{
+  "_meta": {
+    "service_model": "bss",
+    "entity_type": "service",
+    "market": "lome",
+    "entity_name": "swap-network-access-12month",
+    "version": null,
+    "filename_pattern": "{model}-{market}-{entity_type}-{entity_name}.json"
+  },
+  "id": "service-swap-network-access-12month",
+  "name": "Lomé Swap Network Access – 12 Months",
+  "description": "Grants 12-month (365-day) access to the Lomé Swap Network.",
+  "asset_type": "FLEET",
+  "asset_reference": "fleet-swap-network-tg-lome",
+  "usage_metric": "DURATION",
+  "usage_unit": "DAY",
+  "usage_unit_price": 0.00,
+  "_comment_usage_unit_price": "Access service, pricing handled at bundle/plan level",
+  "access_control": {
+    "network_code": "SWAP-NETWORK-TG-LOME",
+    "geographic_boundary": "Lomé Metro Area",
+    "service_hours": "24/7",
+    "access_duration_days": 365
+  },
+  "created_at": "2025-12-16T00:00:00Z",
+  "updated_at": "2025-12-16T00:00:00Z"
+}
+```
+
+---
+
+### 7.2.3 Bundle: 12-Month E3H Swap Bundle
+
+**Filename**: `bss-lome-bundle-e3h-12month.json`
+
+```json
+{
+  "_meta": {
+    "service_model": "bss",
+    "entity_type": "bundle",
+    "market": "lome",
+    "entity_name": "e3h-12month",
+    "version": null,
+    "filename_pattern": "{model}-{market}-{entity_type}-{entity_name}.json"
+  },
+  "id": "bundle-lome-e3h-12month",
+  "name": "E3H 12-Month Swap Bundle (45Ah)",
+  "description": "Complete 12-month swap service bundle for E3H vehicle with 45Ah battery circulation, swap network access, energy metering, and E3H asset assignment",
+  "version": "1.0.0",
+  "status": "ACTIVE",
+  "service_ids": [
+    "service-battery-circulation-access-mobbat-45ah-12month",
+    "service-swap-network-access-12month",
+    "service-energy-gage",
+    "service-asset-assignment-e3h-12month"
+  ],
+  "created_at": "2025-12-16T00:00:00Z",
+  "updated_at": "2025-12-16T00:00:00Z",
+  "created_by": "commercial-team-togo"
+}
+```
+
+---
 
 ### 7.2 Bundle Records
 

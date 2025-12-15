@@ -95,6 +95,36 @@ Composite Product-Units are **Odoo BoM-style combinations** of **orthogonal elem
 
 ---
 
+### E3H Vehicle + Service Privilege Package – 12 Months
+
+**Components:**
+- LEV E3H (1 unit)
+- Swap Privilege – MotBat 45Ah – 12 Months (1 contract)
+- Asset-Assignment – E3H – 12 Months (1 contract)
+
+**Composite Logic:**
+- **Category:** Composite Product-Unit
+- **Metric:** Package (1 per customer)
+- **Description:** E3H motorbike with 12-month swap service privilege and vehicle-to-service binding
+- **Value Proposition:** Complete vehicle sale + contractual entitlements package; enables subsequent service subscription purchases
+- **Sales Order Structure:** Single line item representing vehicle + contracts; services sold as separate line items
+
+**Odoo Implementation:**
+- Parent Product: "E3H Vehicle + Service Privilege Package – 12M"
+- BoM Components: E3H (Physical PU), Swap Privilege – MotBat 45Ah – 12M (Contract PU), Asset-Assignment – E3H – 12M (Contract PU)
+- Pricing: Vehicle price + privilege deposit (refundable) + asset-assignment fee
+- **Activation Flow:**
+  - At sales order confirmation: E3H vehicle inventory allocated
+  - At delivery: 45Ah Privilege activated (swap service entitlement)
+  - At delivery: E3H Asset-Assignment binds vehicle ITEM ID to service plan in ABS
+
+**Service Subscription (Separate Line Items):**
+- 12-Month Battery Circulation Access (45Ah)
+- 12-Month Swap Network Access
+- Energy Gage (metered)
+
+---
+
 ### Motorbike Starter Kit – E3-Pro
 
 **Components:**

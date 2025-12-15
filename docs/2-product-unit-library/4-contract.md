@@ -10,6 +10,7 @@ Contract Product-Units represent long-duration commitments and entitlements that
 2. **Warranty** — Repair or replacement commitments for physical products
 3. **Rental** — Time-bounded usage rights without ownership transfer
 4. **Maintenance** — Scheduled servicing and upkeep commitments
+5. **Asset-Assignment** — Time-bounded binding of specific assets to service plans
 
 ## Privilege Contracts
 
@@ -47,6 +48,14 @@ Contract Product-Units represent long-duration commitments and entitlements that
 - **Metric:** Contract (1 per customer)
 - **Description:** Entitlement to purchase battery swap services for 45Ah battery users
 - **Deposit:** Refundable deposit tied to battery value
+
+### Swap Privilege – MotBat 45Ah – 12 Months
+- **Category:** Contract Product-Unit (Privilege)
+- **Metric:** Contract (1 per customer)
+- **Duration:** 12 months
+- **Description:** 12-month entitlement to purchase battery swap services for 45Ah battery users
+- **Deposit:** Refundable deposit tied to battery value
+- **Prerequisites:** Verified customer account, active vehicle ownership or lease
 
 ### Swap Privilege – MotBat 100Ah
 - **Category:** Contract Product-Unit (Privilege)
@@ -117,6 +126,25 @@ Contract Product-Units represent long-duration commitments and entitlements that
 - **Service Schedule** — Execute maintenance per defined intervals (e.g., quarterly)
 - **Parts & Labor** — Included in contract price; customer pays only for exclusions
 - **Priority Support** — Fast-track service appointments for contract holders
+
+## Asset-Assignment Contracts
+
+**Definition:** Time-bounded assignment of specific assets (vehicles) to service plans. Runtime realization of Contract PUs (WARRANTY, PRIVILEGE, RENTAL).
+
+### Asset-Assignment – E3H – 12 Months
+- **Category:** Contract Product-Unit (Asset-Assignment)
+- **Metric:** Contract (1 per vehicle)
+- **Duration:** 12 months
+- **Description:** 12-month assignment of specific E3H vehicle (ITEM ID from THING) to service plan
+- **Binding:** Concrete vehicle ITEM ID bound at sales order creation
+- **Context:** Bridges fungible Contract PUs and non-fungible service subscriptions
+
+**Asset-Assignment Obligations:**
+
+- **Vehicle Binding** — Link specific vehicle ITEM ID from THING (DIRAC/ARM) to service plan at activation
+- **Duration Tracking** — Monitor assignment period (365 days for 12-month contract)
+- **Service Eligibility** — Enable swap service access for assigned vehicle during contract period
+- **End-of-Term Handling** — Renewal, vehicle reassignment, or contract termination options
 
 ## Common Characteristics
 

@@ -47,7 +47,7 @@ Bundles therefore encode not just **commercial packaging**, but also **infrastru
 The first major business model is **Battery Swap Service (BSS)**. BSS bundles typically combine:
 
 - **Privilege Contracts** (Swap Privilege for specific motorbike/battery models)
-- **Access-Type Services** (Battery Swap Access, Swap Network Access, Charging Network Access)
+- **Access-Type Services** (Battery Swap Access, Swap Network Access, Charging Network Access, Asset Assignment)
 - **Gage-Type Services** (Swap Usage, Energy Usage)
 - **Supporting Physical PUs** (MotBat batteries, chargers, motorbikes)
 
@@ -57,12 +57,13 @@ BSS bundles must ensure that:
 - Battery circulation pool is sized appropriately for demand.
 - Swap Network and Charging Network are coordinated.
 - Privilege, access, and usage services are aligned in duration and scope.
+- Asset Assignment service binds specific vehicle ITEM ID (from THING/DIRAC) at purchase/activation time.
 
 The design of BSS bundles should always start from:
 
-1. **Business intent**  what mission or use case we are enabling (e.g., last-mile delivery, ride-hailing, commuter use).
-2. **Required services**  which service dimensions on the same assets are needed (swap, rental, charging, energy metering).
-3. **Infrastructure prerequisites**  what networks and circulation services must be active.
+1. **Business intent** — what mission or use case we are enabling (e.g., last-mile delivery, ride-hailing, commuter use).
+2. **Required services** — which service dimensions on the same assets are needed (swap, rental, charging, energy metering, asset assignment).
+3. **Infrastructure prerequisites** — what networks and circulation services must be active.
 
 ---
 

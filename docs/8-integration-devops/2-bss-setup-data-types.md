@@ -86,8 +86,8 @@ Services are atomic offerings - the foundational building blocks.
   "description": "Service description for commercial team",
   "asset_type": "FLEET | ITEM",
   "asset_reference": "fleet-{asset-type}-{market}",
-  "usage_metric": "ACCESS | COUNT | CONSUMPTION",
-  "usage_unit": "boolean | swaps | kWh",
+  "usage_metric": "DURATION | COUNT | ENERGY | DISTANCE",
+  "usage_unit": "HOUR | DAY | 1 | 1K | 1M | kWh | KM",
   "usage_unit_price": 0.00,
   "_comment_usage_unit_price": "Commercial team pricing input required",
   "access_control": {
@@ -108,8 +108,8 @@ Services are atomic offerings - the foundational building blocks.
 | `description` | String | Yes | Commercial description |
 | `asset_type` | Enum | Yes | `FLEET` (network/pool) or `ITEM` (countable resource) |
 | `asset_reference` | String | Yes | Reference to underlying asset pool |
-| `usage_metric` | Enum | Yes | `ACCESS` (boolean), `COUNT` (transactions), `CONSUMPTION` (metered) |
-| `usage_unit` | String | Yes | Unit of measurement: `boolean`, `swaps`, `kWh` |
+| `usage_metric` | Enum | Yes | `DURATION` (time elapsed), `COUNT` (dimensionless count), `ENERGY` (e.g. kWh), `DISTANCE` (e.g. km) |
+| `usage_unit` | String | Yes | Unit of measurement: `HOUR`, `DAY`, `1`, `1K`, `1M`, `kWh`, `KM` |
 | `usage_unit_price` | Number | Yes | Price per unit (pending commercial input) |
 | `access_control` | Object | No | Service-specific access constraints |
 | `created_at` | DateTime | Yes | Creation timestamp |
@@ -130,8 +130,8 @@ Services are atomic offerings - the foundational building blocks.
   "description": "Access to battery swap network fleet across Lome metropolitan area",
   "asset_type": "FLEET",
   "asset_reference": "fleet-swap-stations-lome",
-  "usage_metric": "ACCESS",
-  "usage_unit": "boolean",
+  "usage_metric": "DURATION",
+  "usage_unit": "DAY",
   "usage_unit_price": 0.00,
   "access_control": {
     "geographic_boundary": "Lome Metro Area",
@@ -156,8 +156,8 @@ Services are atomic offerings - the foundational building blocks.
   "description": "Access to battery inventory pool for swap operations",
   "asset_type": "FLEET",
   "asset_reference": "fleet-batteries-togo",
-  "usage_metric": "ACCESS",
-  "usage_unit": "boolean",
+  "usage_metric": "DURATION",
+  "usage_unit": "DAY",
   "usage_unit_price": 0.00,
   "access_control": {
     "battery_types": ["standard-48v", "standard-60v"],
@@ -183,7 +183,7 @@ Services are atomic offerings - the foundational building blocks.
   "asset_type": "ITEM",
   "asset_reference": "swap-transactions-togo",
   "usage_metric": "COUNT",
-  "usage_unit": "swaps",
+  "usage_unit": "1",
   "usage_unit_price": 0.00,
   "access_control": {
     "requires_active_subscription": true,
@@ -207,7 +207,7 @@ Services are atomic offerings - the foundational building blocks.
   "description": "Battery electricity quota allocation based on kilowatt-hour consumption",
   "asset_type": "ITEM",
   "asset_reference": "electricity-pool-togo",
-  "usage_metric": "CONSUMPTION",
+  "usage_metric": "ENERGY",
   "usage_unit": "kWh",
   "usage_unit_price": 0.00,
   "access_control": {
@@ -218,6 +218,38 @@ Services are atomic offerings - the foundational building blocks.
 ```
 
 **Commercial Mapping**: Maps to "Electricity Allocation" Service Product-Unit
+
+#### 5. Asset-Assignment Service
+
+**Purpose**: Bind specific vehicle ITEM ID to service plan for contract duration
+
+**Example**: `bss-lome-service-asset-assignment-e3h-12month.json`
+
+```json
+{
+  "id": "service-asset-assignment-e3h-12month",
+  "name": "Asset Assignment – E3H – 12 Months",
+  "description": "12-month (365-day) time-bounded assignment of E3H vehicle to swap service plan, binding vehicle ITEM ID from THING to service entitlements",
+  "asset_type": "ITEM",
+  "asset_reference": "vehicle-e3h",
+  "usage_metric": "DURATION",
+  "usage_unit": "DAY",
+  "usage_unit_price": 0.00,
+  "_comment_usage_unit_price": "Asset assignment is priced at plan level, not per day",
+  "access_control": {
+    "assignment_duration_days": 365,
+    "vehicle_model": "E3H",
+    "requires_concrete_item_id": true,
+    "binding_time": "SALES_ORDER_CREATION"
+  },
+  "created_at": "2025-12-16T00:00:00Z",
+  "updated_at": "2025-12-16T00:00:00Z"
+}
+```
+
+**Commercial Mapping**: Maps to "Asset-Assignment – E3H – 12 Months" Contract Product-Unit
+
+**Context**: Runtime realization of Contract PUs (WARRANTY, PRIVILEGE, RENTAL). Bridges fungible Contract PUs to non-fungible service subscriptions by binding concrete vehicle ITEM ID from THING (DIRAC/ARM) at sales order creation.
 
 ---
 
@@ -459,9 +491,9 @@ Each service in the plan has specific quota and usage rules:
 
 ### Service Configuration Patterns
 
-#### Access Services (Boolean)
+#### Access Services (Entitlement Flag)
 
-Network and fleet access are boolean services:
+Network and fleet access use a 0/1 entitlement flag in quota configuration:
 
 ```json
 {
@@ -472,7 +504,7 @@ Network and fleet access are boolean services:
   "auto_renewal": true,
   "overage_allowed": false,
   "overage_rate": null,
-  "_comment": "Network access is boolean - 1.0 means enabled, no overage concept"
+  "_comment": "Network access entitlement flag - 1.0 means enabled for the contract period, no overage concept"
 }
 ```
 
@@ -549,6 +581,7 @@ Each **Service** in ABS Platform maps to a **Service Product-Unit** in the comme
 | Battery Fleet Access | Battery Circulation Access | Service PU |
 | Swap Count | Swap Transactions | Service PU |
 | Electricity | Electricity Allocation | Service PU |
+| Asset-Assignment – E3H – 12 Months | Asset-Assignment – E3H – 12 Months | Contract PU |
 
 ### Bundle → Product Bundle
 

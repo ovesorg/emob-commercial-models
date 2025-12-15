@@ -39,6 +39,14 @@ Service Product-Units deliver ongoing value through infrastructure access or usa
 - **Description:** Access to city-wide charging network for specified duration
 - **Context:** Geographic coverage (city-level), charger availability
 
+### Asset Assignment – Vehicle – Daily
+- **Category:** Service Product-Unit (Access-Type)
+- **Metric:** Day
+- **Duration:** 1 day (or multi-day as defined)
+- **Description:** Time-bounded assignment of a specific asset (e.g., vehicle) to a user, binding the asset ITEM ID from THING (DIRAC/ARM) to the service plan
+- **Context:** Non-fungible service; references concrete asset instance. Used as runtime realization of Contract PUs (WARRANTY, PRIVILAGE, RENTAL). In BSS, binds specific vehicle to swap service plan at purchase/activation.
+- **Prerequisites:** Concrete asset instance available in THING, Contract PU defining entitlement scope
+
 ## Gage-Type Services
 
 **Definition:** Monetize usage metrics. No duration field required; charged per unit of consumption.

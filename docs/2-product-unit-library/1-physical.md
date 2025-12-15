@@ -14,6 +14,12 @@ Physical Product-Units are tangible assets that can be serialized, tracked, and 
 - **Description:** Electric motorbike, standard configuration
 - **Tracking:** Serial number, VIN, asset lifecycle
 
+**LEV E3H**
+- **Category:** Physical Product-Unit
+- **Metric:** Piece
+- **Description:** Electric motorbike, E3H configuration
+- **Tracking:** Serial number, VIN, asset lifecycle
+
 **LEV S7**
 - **Category:** Physical Product-Unit
 - **Metric:** Piece
