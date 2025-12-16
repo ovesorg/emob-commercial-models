@@ -2,20 +2,12 @@
 
 ## Overview
 
-Composite Product-Units are **Odoo BoM-style combinations** of **orthogonal elements** — independent Product-Units that can be flexibly combined into new offerings.
+Composite Product-Units are Odoo BoM-style combinations of orthogonal Product-Units. They package independent elements into a single sales product.
 
-**Key Characteristics:**
+**Distinction from Bundles:**
 
-- **Arbitrary Composition** — Elements are independent; combinations are structurally flexible.
-- **Odoo BoM Mechanism** — Uses Odoo's Bill-of-Materials (BoM) feature to define component relationships.
-- **Orthogonal Elements** — Components serve different purposes and can be independently valued or substituted.
-
-**Critical Distinction from Bundles:**
-
-- **Composite (Odoo context):** Combines orthogonal elements (e.g., motorbike + charger + helmet). Components are **independent** and can be mixed/matched arbitrarily.
-- **Bundle (ABS context):** Groups **parallel service elements** that must work in tandem (e.g., Battery Circulation + Swap Network Access with matched durations). Bundles require **functional coherence** and **synchronized operation**.
-
-**Composites are structurally flexible; bundles must make operational sense as integrated offerings.**
+- **Composite (Odoo):** BoM-based packaging of independent elements (e.g., vehicle + charger + contract PUs).
+- **Bundle (ABS):** Logical grouping of services that must operate together (e.g., Battery Circulation + Swap Network Access with aligned durations).
 
 ## Product Examples
 
@@ -195,44 +187,8 @@ Composite Product-Units are **Odoo BoM-style combinations** of **orthogonal elem
 - **Component Independence** — Elements can function separately; composite is a convenience grouping.
 - **BoM-Driven Structure** — Odoo BoM defines component list, quantities, and substitutions.
 - **Flexible Pricing** — Can offer discounts, volume pricing, or promotional rates vs. sum-of-parts.
-- **Marketing-Driven** — Composites are often designed for customer segments (new owners, fleet operators, service subscribers).
 
-**Obligations:**
+**Usage Notes:**
 
-- **Component Availability** — All BoM components must be in stock or procurable.
-- **Delivery Coordination** — Physical components ship together; contracts/services activate in sync.
-- **Customer Communication** — Clear breakdown of what's included, pricing transparency.
-
-**Context Requirements:**
-
-- **Valid BoM Configuration** — Odoo BoM must be active, components defined, pricing rules set.
-- **Inventory Check** — Physical components require stock confirmation before order confirmation.
-- **Contract Activation** — Service/Contract PUs in composite must be provisioned in Odoo and ABS.
-
-## Usage Guidelines
-
-**When to Use Composites:**
-
-- **Convenience Packaging** — Simplify purchase for customers (e.g., "starter kits," "fleet packages").
-- **Marketing Campaigns** — Promotional bundles with discounted pricing to drive sales.
-- **Cross-Sell Opportunities** — Combine related products to increase average order value.
-
-**When NOT to Use Composites (Use ABS Bundles Instead):**
-
-- **Service Synchronization** — When services must operate in tandem with matched durations or entitlements.
-- **Complex Business Logic** — When bundle rules require validation, eligibility checks, or dynamic composition.
-- **Asset-Based Service Relationships** — When bundle components depend on asset state, telemetry, or usage patterns.
-
-**Rule of Thumb:**
-
-- If components are **structurally flexible and independent**, use Odoo Composite.
-- If components require **functional coherence and synchronized operation**, use ABS Bundle.
-
-## Future Expansion
-
-Potential Composite Product-Units to be developed:
-
-- **Home Charging Setup Kit** — Charger + installation service + electrical inspection
-- **Corporate Fleet Onboarding Package** — Motorbikes + charging infrastructure + fleet dashboard + training sessions
-- **Seasonal Promotion Packs** — Discounted combos for holidays, new market launches, or clearance sales
-- **Accessory Upgrade Kits** — Performance parts, aesthetic customizations, safety gear bundles
+- Use composites for Odoo-side packaging of physical + contract PUs (e.g., vehicle + privileges + asset-assignment).
+- Use ABS bundles when you need synchronized service behavior, entitlement logic, or asset-state-dependent rules.

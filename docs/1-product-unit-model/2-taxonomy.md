@@ -3,7 +3,7 @@ Here is a concise summary of a four-category Product-Unit taxonomy, and why it i
 
 ---
 
-# Product-Unit Taxonomy: Four Commercial Categories
+## Product-Unit Taxonomy: Four Commercial Categories
 
 A modern framework aligned with global digital commerce and asset-based services.
 
@@ -13,7 +13,7 @@ Every offering—physical, digital, service, entitlement, subscription, deposit,
 
 ---
 
-# 1. Physical Product-Unit — The Tangible Asset Layer
+### 1. Physical Product-Unit — The Tangible Asset Layer
 
 ### **Definition**
 
@@ -30,7 +30,7 @@ This matches global EV and IoT practices where the physical product is only **on
 
 ---
 
-# 2. Digital Product-Unit — The Access & Data Layer
+### 2. Digital Product-Unit — The Access & Data Layer
 
 ### **Definition**
 
@@ -54,7 +54,7 @@ Digital products make mobility and energy systems **programmable**.
 
 ---
 
-# 3. Service Product-Unit — The Operational Value Layer
+### 3. Service Product-Unit — The Operational Value Layer
 
 ### **Definition**
 
@@ -78,7 +78,7 @@ Your swap model fits perfectly into this global paradigm:
 
 ---
 
-# 4. Contract Product-Unit — The Entitlement & Obligation Layer
+### 4. Contract Product-Unit — The Entitlement & Obligation Layer
 
 *(The most modern and strategically powerful category.)*
 
@@ -113,7 +113,7 @@ This category prepares OVES for the **post-ownership economy**, where rights and
 
 ---
 
-# Core Insight
+## Core Insight
 
 Physical, Digital, Service, and Contract are classification categories for Product-Units.
 
@@ -128,7 +128,7 @@ Odoo records only the Product-Units as line items; it does not mirror bundles.
 
 ---
 
-# Mapping Traditional Product Concepts → Product-Unit Categories
+## Mapping Traditional Product Concepts → Product-Unit Categories
 
 | Traditional Concept         | Old Interpretation    | Modern Interpretation (Your Framework)             |
 | --------------------------- | --------------------- | -------------------------------------------------- |
@@ -144,7 +144,7 @@ Odoo records only the Product-Units as line items; it does not mirror bundles.
 
 ---
 
-# Mapping to Emerging Global Trends
+## Mapping to Emerging Global Trends
 
 | Emerging Trend                | Your Category Fit             | Why It Aligns                          |
 | ----------------------------- | ----------------------------- | -------------------------------------- |
@@ -160,7 +160,7 @@ This places OVES at the **front edge** of global commerce evolution.
 
 ---
 
-# Summary
+## Summary
 
 OVES defines all products as compositions of Product-Units.
 Each Product-Unit:

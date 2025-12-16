@@ -1,6 +1,6 @@
-# ABS System
+## ABS System
 
-## Core Principle
+### Core Principle
 
 **Product Unit** is the *shared atomic concept* between ABS and Odoo.
 **Bundle** is an *ABS-only construct*, not an Odoo construct.
@@ -10,7 +10,7 @@ Odoo only needs to receive and process **Product Units**, each with its own comm
 
 ---
 
-## 1. ABS Creates and Owns Bundles
+### 1. ABS Creates and Owns Bundles
 
 ABS is the **business logic engine** that:
 
@@ -33,7 +33,7 @@ And **not polluted by Odoo limitations**.
 
 ---
 
-## 2. Odoo Should NOT Mirror Bundles
+### 2. Odoo Should NOT Mirror Bundles
 
 Odoo bundles (BoMs, kits, variants) should NOT be used for:
 
@@ -56,7 +56,7 @@ So yes:
 
 ---
 
-## 3. How Bundles Appear in Odoo → as **sale.order lines**
+### 3. How Bundles Appear in Odoo → as **sale.order lines**
 
 When a customer selects a bundle in the frontend (OVApp):
 
@@ -108,7 +108,7 @@ ABS does the operational logic:
 
 ---
 
-## 4. This enforces the design principle clearly
+### 4. This enforces the design principle clearly
 
 ### **Odoo handles all customer-facing commercial logic.**
 
@@ -134,7 +134,7 @@ because bundling is actually *business-logic composition*, not "product composit
 
 ---
 
-## 5. Why this architecture is strategically correct
+### 5. Why this architecture is strategically correct
 
 ### ✔ No SKU explosion
 
@@ -166,7 +166,7 @@ ABS can add new bundle types without reconfiguring Odoo.
 
 ---
 
-## 6. The final model in one sentence
+### 6. The final model in one sentence
 
 **ABS decides what bundle a customer can buy.
 Odoo decides how each product unit is commercially executed.**

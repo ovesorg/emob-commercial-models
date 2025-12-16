@@ -1,6 +1,6 @@
-# Odoo Native Product Models
+## Odoo Native Product Models
 
-## Motivating Questions
+### Motivating Questions
 
 ### A. Why Rely on Odoo's Native Product Models?
 
@@ -50,7 +50,7 @@ Requires:
 * Warranty / returns / deposits handling
 * Service products and subscription models
 
-## Odoo Native Product Constructs
+### Odoo Native Product Constructs
 
 We distinguish three fundamental Product-Unit categories in Odoo:
 
@@ -72,7 +72,7 @@ We distinguish three fundamental Product-Unit categories in Odoo:
 | **Deposit Product** | Service + Liability Account | Returns/refunds, warranties | Battery swap privilege deposits |
 | **Warranty/Return Rules** | After-sale processes | Standard RMA flow | Deposit recovery, entitlement cancellation |
 
-## Architecture Alignment
+### Architecture Alignment
 
 **Odoo provides:**
 

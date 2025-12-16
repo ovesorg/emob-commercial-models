@@ -4,6 +4,8 @@
 
 This document defines the setup data types for Battery Swap Service (BSS) **services** (Product-Units) and **bundles** as implemented in the ABS Platform. These types bridge the commercial model definitions with the operational platform configuration.
 
+Each BSS service must map to a Service Product-Unit in Odoo (see `../2-product-unit-library/2-service.md`). Market-specific instances (for example Togo – Lomé) are cataloged in `../7-market-specific-models/togo-models.md` and use the schemas defined here.
+
 **Source**: ABS Platform (`abs-platform/docs/models/bss/setup-data`)
 
 ---
@@ -24,7 +26,7 @@ Plan (Bundle + Terms)
 Plan Instance (customer-specific)
 ```
 
-**Key Principle**: Bundles represent **tier-based service collections** (barebone, lux, premium) and do NOT contain period information. Subscription periods are managed at the **Terms** and **Plan** levels.
+**Key Principle**: Bundles represent **tier-based service collections** (e.g., barebone, lux, premium). Subscription periods are modeled at the **Terms** and **Plan** levels, even when some markets (such as the initial Togo setup) choose to use period-specific bundle IDs for simplicity.
 
 ---
 

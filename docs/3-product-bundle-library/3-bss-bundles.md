@@ -1,14 +1,14 @@
 ## BSS Bundles
 
-This section will contain bundle collections specific to **Battery Swap Service (BSS)**.
+### Purpose
 
-### Intent
+- Link generic ABS bundle patterns to concrete BSS bundle instances.
+- Avoid duplicating JSON/service definitions; instead, reference setup-data and market-specific chapters.
 
-- Capture real bundle definitions used for BSS (e.g., Starter Packs, Driver Packs).
-- Each bundle should be defined using the pattern in `2-service-templates.md`.
-- Focus initially on:
-  - New customer onboarding bundles
-  - High-usage / fleet bundles
-  - Upgrade or add-on bundles linked to existing PUs.
+### 1. Togo – Lomé (BSS Launch)
 
-*(Bundle definitions to be added as they are agreed by the product team.)*
+| Pattern                          | ABS Bundle ID              | Notes                                                            | Reference                                  |
+|----------------------------------|----------------------------|------------------------------------------------------------------|--------------------------------------------|
+| E3H 12-Month Swap Bundle (45Ah) | `bundle-lome-e3h-12month` | Vehicle + BSS services + asset-assignment for E3H over 12 months | See Togo models E3H 12M bundle definition |
+
+Further markets (e.g., Nairobi) can add their own rows following this pattern when bundles are agreed.

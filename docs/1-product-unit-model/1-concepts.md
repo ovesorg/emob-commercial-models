@@ -96,23 +96,26 @@ At the Product-Unit level, what matters is **how the entitlement is measured and
 
 ### Metrics: How Product-Units Are Measured
 
-In our commercial models, every Product-Unit is constrained to have a clear **metric** that describes "how much" is being granted, consumed, or owned.
+In our commercial models, every Product-Unit must have a clear **metric** that describes "how much" is being granted, consumed, or owned, and a **unit** that specifies how that metric is measured.
 
 Common metric patterns:
 
-- **Piece / Unit** – fungible and discrete items
+- **Piece / Unit** – fungible, discrete items
   - Example: 1 motorcycle, 1 charger, 1 helmet
-- **Weight / Volume** – bulk goods
-  - Example: kg of material, liters/gallons of fluid
-- **Time** – duration or validity period
-  - Example: days/months of subscription or membership (Service Product-Unit governed by a Contract Product-Unit)
-- **Count** – access or usage events
-  - Example: number of swaps, number of rentals, number of downloads
+- **Time (DURATION)** – how long something is valid or assigned
+  - Example: `DURATION` measured in `DAY` or `HOUR` (subscription period, asset-assignment period)
+- **Count (COUNT)** – dimensionless usage events
+  - Example: number of swaps, number of rentals, number of activations; unit `1`, `1K`, or `1M`
+- **Energy (ENERGY)** – consumption of electric energy
+  - Example: `ENERGY` measured in `kWh` for battery charging and swap energy
+- **Distance (DISTANCE)** – optional distance-based metrics
+  - Example: `DISTANCE` measured in `KM`
 
 Each Product-Unit must:
 
-- Declare its primary metric (piece, kg, day, count, etc.)
-- Define what one unit of that metric entitles the customer to
+- Declare its primary **metric** (e.g., DURATION, COUNT, ENERGY)
+- Declare the corresponding **unit** (e.g., DAY, 1, kWh, KM)
+- Define what **one unit** of that metric entitles the customer to
 
 ---
 

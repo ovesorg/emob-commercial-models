@@ -2,13 +2,13 @@
 
 ### Product-Unit Definition Template
 
-Use this template to define any Product-Unit:
+Use this template to define any Product-Unit using the five dimensions from `1-concepts.md`:
 
 ```markdown
 # Product-Unit: [Name]
 
 ## 1. Identity
-- **Category**: [Physical / Service / Deposit-Based / Digital / Regulatory / Composite]
+- **Category**: [Physical / Digital / Service / Contract]
 - **Unique ID**: [Code]
 - **Description**: [Brief description]
 

@@ -6,7 +6,7 @@ Company entity (dealer, franchisee, distributor) authorized to sell.
 
 Attributes:
 
-- Legal entity (is_company = true)
+- Odoo model: `res.partner` (`is_company = True`, tagged as "Channel Partner")
 - Territory & market
 - Product access rights
 - Channel-specific pricing rules
@@ -20,9 +20,10 @@ Commercial sales location (physical, mobile, or virtual).
 
 Attributes:
 
+- Odoo model: `ov.outlet` (retail sales outlet)
 - Name, external code
 - Owned/operated by a Channel Partner
-- Physical site address (single source of truth)
+- Physical site address (single source of truth via linked Site partner)
 - Optional co-located warehouse
 
 Location hint:

@@ -10,11 +10,15 @@ Frontend app brings together ABS and Odoo backend functionality to create a cohe
 - ABS and Odoo must be in sync on Product Unit definition.
 - ABS defines logical bundles; Odoo records Product Units as `sale.order` line items.
 
-References: `../3-bundling-framework/1-types.md`, `../3-bundling-framework/2-pitfalls.md`, `../3-bundling-framework/3-bundle-templates.md`.
+### Vehicle Scan and Asset Assignment
+- When selling a vehicle that must be bound to a service plan, OVApp scans and identifies the specific motorbike (VIN/QR), turning it into a concrete asset.
+- **In Odoo**, that scan selects the relevant Physical Product-Unit and/or Asset-Assignment Contract PU, which appear as `sale.order` lines.
+- **In ABS**, the same vehicle identifier (ITEM ID from THING) is used to create or update the `asset-assignment` service instance, binding that ITEM to the bundle for the contract duration.
+- This keeps the Sales Order as the commercial record, while ABS owns the operational asset binding.
 
 ---
 
-## Typical Steps (Shell)
+## Typical Steps
 
 1. Start session
 2. Select bundle (ABS) → expand to Product-Units

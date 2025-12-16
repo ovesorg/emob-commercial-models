@@ -27,14 +27,14 @@ This document maps Togo team inputs into **Product-Units (PUs)** and **bundles**
 - Purpose: Runtime realization of Contract PUs (WARRANTY, PRIVILEGE, RENTAL)
 
 **12-Month Services and Bundle Added**
-- **Asset-Assignment Services** (Section 7.2.1):
+- **Asset-Assignment Services** (ABS setup data; see `8-integration-devops/2-bss-setup-data-types.md`):
   - `service-asset-assignment-e3h-12month`
   - `service-asset-assignment-e3pro-12month`
   - `service-asset-assignment-s6h-12month`
-- **Access Services** (Section 7.2.2):
+- **Access Services** (ABS setup data; see `8-integration-devops/2-bss-setup-data-types.md`):
   - `service-battery-circulation-access-mobbat-45ah-12month` (365 days)
   - `service-swap-network-access-12month` (365 days)
-- **Bundle** (Section 7.2.3):
+- **Bundle** (ABS bundle; see `8-integration-devops/2-bss-setup-data-types.md`):
   - `bundle-lome-e3h-12month`: Complete 12-month E3H swap bundle with Battery Circulation (45Ah), Swap Network, Energy Gage, and E3H Asset-Assignment
 
 **Odoo Product-Units Created**

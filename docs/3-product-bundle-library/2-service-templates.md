@@ -1,17 +1,35 @@
 ## Service Templates
 
-### Overview
+### 1. Basic Asset-Based Services for BSS
 
-This section defines **repeatable bundle templates** for ABS. Commercial teams use these templates as starting points and then adapt them to specific markets, channels, and segments.
+Bundles in ABS are built from simple, one-dimensional services. For Battery Swap Service (BSS), the core building blocks are:
 
-- Bundles are **ABS-domain constructs** built from Product-Units (Physical, Service, Contract, Digital, Composite).
-- ABS expands bundles into individual Product-Units before sending them to Odoo.
+- **Access-Type Services** (grant time-bounded access; require duration alignment):
+  - Battery Circulation Access (FLEET, `usage_metric: DURATION`, `usage_unit: DAY`)
+  - Swap Network Access (FLEET, `usage_metric: DURATION`, `usage_unit: DAY`)
+  - Asset-Assignment (ITEM, `usage_metric: DURATION`, `usage_unit: DAY`, binds vehicle ITEM ID from THING)
+- **Gage-Type Services** (monetize usage; no duration field):
+  - Energy Gage (`usage_metric: ENERGY`, `usage_unit: kWh`)
+  - Swap Count (`usage_metric: COUNT`, `usage_unit: 1`)
+- **Contract Product-Units** (long-duration entitlements):
+  - Privilege, Rental, Warranty, Asset-Assignment contracts
+
+These services and contracts are defined in the Product-Unit Library and BSS setup data; ABS bundles them into meaningful offerings.
+
+### 2. Bundle Design Principles (ABS / BSS)
+
+When designing bundles in ABS, apply these principles:
+
+- **Build from 1D services**: each component has a single clear metric and unit.
+- **Align durations for access-type services**: Battery Circulation Access and Swap Network Access in the same bundle must share the same duration.
+- **Separate entitlement from usage**: Contract PUs (Privilege, Rental, Warranty, Asset-Assignment) express long-lived rights; gage-type services express actual consumption.
+- **Keep Odoo composites separate**: Odoo composites (BoM kits) package PUs for sales; ABS bundles define how services work together operationally.
 
 The templates below focus on **Battery Swap Service (BSS)** as the first major business model.
 
 ---
 
-### Standard Bundle Template
+### 3. Standard Bundle Template
 
 Use this template to define any bundle:
 
@@ -132,11 +150,11 @@ Use this template to define any bundle:
 
 ---
 
-### BSS Bundle Templates
+### 4. BSS Bundle Templates
 
 The following templates focus on **Battery Swap Service (BSS)**, combining Privilege, Access-Type services, Gage-Type services, and supporting Physical PUs.
 
-#### 1. BSS Starter Bundle – Commuter
+#### 4.1 BSS Starter Bundle – Commuter
 
 **Intent:** Enable daily commuters to adopt battery swap with predictable monthly cost.
 
@@ -179,7 +197,7 @@ The following templates focus on **Battery Swap Service (BSS)**, combining Privi
 5. Load 50 swap credits in ABS
 ```
 
-#### 2. BSS Professional Bundle – Delivery Rider
+#### 4.2 BSS Professional Bundle – Delivery Rider
 
 **Intent:** Support high-usage delivery riders with extended swap capacity and network coverage.
 
@@ -215,7 +233,7 @@ The following templates focus on **Battery Swap Service (BSS)**, combining Privi
 - Full-time delivery rider requiring continuous operation throughout the day.
 ```
 
-#### 3. BSS Fleet Bundle – SME Fleet (10 Bikes)
+#### 4.3 BSS Fleet Bundle – SME Fleet (10 Bikes)
 
 **Intent:** Provide a complete BSS solution for small fleets.
 

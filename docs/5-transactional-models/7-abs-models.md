@@ -12,7 +12,7 @@ ABS determines valid combinations, eligibility, and entitlements. Commercial exe
 ## Bundles (ABS-Only)
 
 - ABS expands a selected bundle into a list of Product-Units
-- Frontend submits these Product-Units to the transaction
+- Frontend submits these Product-Units to the Sales Order
 - No bundle mirroring required in the commercial system
 
 Why:
@@ -36,8 +36,7 @@ Deposit-based or contractual rights that grant access to services (e.g., battery
 
 ## References
 
-- Product-Unit Structure: `../1-product-unit-model/1-structure.md`
+- Product-Unit Concepts: `../1-product-unit-model/1-concepts.md`
 - Product-Unit Taxonomy: `../1-product-unit-model/2-taxonomy.md`
-- ABS vs Commercial Responsibilities: `../1-product-unit-model/5-abs-odoo-bundles.md`
-- Bundling Types & Templates: `../3-bundling-framework/1-types.md`, `../3-bundling-framework/3-bundle-templates.md`
-- Pitfalls checklist: `../3-bundling-framework/2-pitfalls.md`
+- ABS System Responsibilities: `../1-product-unit-model/5-abs-system.md`
+- Product-Bundle Library: `../3-product-bundle-library/index.md`

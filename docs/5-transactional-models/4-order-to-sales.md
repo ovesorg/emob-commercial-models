@@ -2,7 +2,7 @@
 
 ## Payment Flow
 
-Transactions follow a clear payment path:
+Sales orders follow a clear payment path:
 
 1. Session begins in Draft
 2. Payment attempt recorded (success or failure)
@@ -28,7 +28,7 @@ Guidelines:
 
 ## Refunds & Cancellations
 
-- Pre-fulfillment cancellations return transaction to Cancelled
+- Pre-fulfillment cancellations return the Sales Order to Cancelled
 - Deposit refunds occur per defined conditions (termination, entitlement return)
 - Recurring services stop on cancellation; reactivation resumes billing
 
@@ -42,8 +42,7 @@ Guidelines:
 
 References:
 
-- Product-Unit Structure: `../1-product-unit-model/1-structure.md`
+- Product-Unit Concepts: `../1-product-unit-model/1-concepts.md`
 - Product-Unit Taxonomy: `../1-product-unit-model/2-taxonomy.md`
-- Bundling Types: `../3-bundling-framework/1-types.md`
-- Bundle Templates: `../3-bundling-framework/3-bundle-templates.md`
+- Product-Bundle Library: `../3-product-bundle-library/index.md`
 - Implementation: `./6-odoo-models.md`

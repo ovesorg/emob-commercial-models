@@ -1,6 +1,6 @@
-# OVES Product Architecture: Source of Truth, Synchronization, and Meaning Exchange
+## OVES Product Architecture: Source of Truth, Synchronization, and Meaning Exchange
 
-## 1. Odoo = Source of Truth (SoT) for Product Units
+### 1. Odoo = Source of Truth (SoT) for Product Units
 
 Odoo owns and defines the **commercial representation** of a Product Unit (PU):
 
@@ -19,7 +19,7 @@ ABS never invents or modifies PUs; it only **consumes** them.
 
 ---
 
-## 2. ABS = Source of Truth for Asset Semantics, Entitlement, and Service Delivery
+### 2. ABS = Source of Truth for Asset Semantics, Entitlement, and Service Delivery
 
 ABS interprets Product Units into **operational meaning**:
 
@@ -38,7 +38,7 @@ ABS's ORM schema exists only to support operational rules and historical record-
 
 ---
 
-## 3. Synchronization: Odoo → ABS (Product Definition)
+### 3. Synchronization: Odoo → ABS (Product Definition)
 
 Although technical implementation (API, webhooks, ORM sync) is a detail, the **conceptual rule** is simple:
 
@@ -62,7 +62,7 @@ ABS never alters core PU definitions — it **extends** PU meaning into the phys
 
 ---
 
-## 4. Synchronization: ABS → Odoo (Service State & Operational Feedback)
+### 4. Synchronization: ABS → Odoo (Service State & Operational Feedback)
 
 Odoo needs to know:
 
@@ -87,7 +87,7 @@ This maintains:
 
 ---
 
-## 5. Meaning Exchange Model (Simple but Powerful)
+### 5. Meaning Exchange Model (Simple but Powerful)
 
 ### **Odoo → ABS**
 
@@ -109,7 +109,7 @@ Exactly how modern service-driven ecosystems operate.
 
 ---
 
-## 6. DIRAC = The Unifying Layer
+### 6. DIRAC = The Unifying Layer
 
 DIRAC standardizes and formalizes:
 
@@ -138,6 +138,6 @@ DIRAC makes Odoo and ABS act as a **single coherent platform**, even though they
 
 ---
 
-## 7. Final Summary (One Paragraph)
+### 7. Final Summary (One Paragraph)
 
 Odoo is the **source of truth** for Product Units — defining what products are, how they are marketed, priced, and sold. ABS consumes these units and adds **operational meaning**, translating commercial products into physical-asset activities, smart-device interactions, and service workflows. Odoo receives service state back from ABS to drive billing, refund, contract, and customer lifecycle logic. DIRAC harmonizes this exchange, ensuring that Odoo and ABS act as a single platform while UXI presents a unified experience to partners, agents, and customers.

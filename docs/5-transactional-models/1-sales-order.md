@@ -1,5 +1,7 @@
 # Sales Order
 
+The Sales Order (`sale.order`) is the **canonical transactional record** in Odoo. Every OVApp sales session anchors on a draft Sales Order, which is updated until payment is confirmed and fulfillment is complete.
+
 ## Lifecycle States
 
 Draft → Sale → Done / Cancel
@@ -11,7 +13,7 @@ Draft → Sale → Done / Cancel
 
 ---
 
-## Native Fields (core)
+## Core Fields
 
 - partner_id: customer
 - order_line: product-unit lines

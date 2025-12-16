@@ -2,13 +2,13 @@
 
 ## Purpose
 
-A sales session records a customer interaction from start to finish. It must be persistent and resumable across interruptions, locations, and agents.
+A sales session records a customer interaction from start to finish in OVApp. Each session is backed by a draft `sale.order` in Odoo, which carries products, pricing, and payment attempts until completion.
 
 ---
 
 ## Session Lifecycle
 
-- Start: Initiate session; transaction enters Draft
+- Start: Initiate session; underlying Sales Order enters Draft
 - Pause: Session can pause without losing context
 - Resume: Continue later, optionally at another outlet if allowed
 - Handoff: Transfer to another sales representative when necessary

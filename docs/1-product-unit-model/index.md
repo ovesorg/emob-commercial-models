@@ -1,26 +1,14 @@
 ## Product-Unit Model
 
-### Introduction
+### Overview
 
-The project adopts a **unit-composition** methodology, similar to BUFM.
+This chapter defines the Product-Unit model used across the documentation and shows how Product-Units map into Odoo, ABS, and DIRAC.
 
-Each "Product-Unit" is a **minimal, identifiable commercial element**—either:
+### Sections
 
-* A **physical product** (e.g., battery, charger, vehicle)
-* A **service-based product** (e.g., subscription, swap credit, warranty extension)
-* A **deposit-based entitlement** (e.g., asset pool access)
-
-Each Product-Unit must be fully defined across **five dimensions**:
-
-1. **Product-Unit** — the discrete commercial object itself
-2. **Product-Unit Value** — why this unit exists commercially
-3. **Product-Unit Context** — dependencies required for function
-4. **Product-Unit Obligations** — operational duties when sold
-5. **Product-Unit Costs** — all costs mapped to obligations and value delivery
-
-### Why Unit-Composition?
-
-* Clarity in pricing, contracts, channel activities, and customer interactions
-* Traceability through operational workflows
-* Modular bundling and flexible offerings
-* Alignment with Odoo, OVApp, and IoT systems
+- `1-concepts.md` – Core Product-Unit definition and the five dimensions (Identity, Value, Context, Obligations, Costs)
+- `2-taxonomy.md` – Four-category Product-Unit taxonomy: Physical, Digital, Service, Contract
+- `3-prototypes.md` – Template for writing Product-Unit definitions using the five dimensions
+- `4-odoo-system.md` – How Product-Units are represented in Odoo native models
+- `5-abs-system.md` – How ABS uses Product-Units in bundles and operational logic
+- `6-dirac-odoo-abs.md` – How DIRAC coordinates meaning between Odoo, ABS, and external UXI
