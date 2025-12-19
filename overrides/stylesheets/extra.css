@@ -1,4 +1,4 @@
-/* OVES Access Management - optional 2-column layout */
+oves-editorial-trail/* OVES Access Management - optional 2-column layout */
 /* Add the `abs-layout` class to <body> (for example via extra_javascript) to enable these overrides. */
 
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
@@ -424,4 +424,18 @@ body.abs-layout .md-header__button.md-icon[for="__alternate"] {
 }
 .md-typeset .admonition.important .admonition-title {
     color: #dc2626;
+}
+
+/* Editorial trail in footer */
+.oves-editorial-trail,
+.oves-editorial-trail span {
+    font-size: 0.7rem !important;
+    color: #2563eb !important;
+    font-weight: 500;
+}
+
+.md-editorial-footer {
+    margin-top: 0.15rem;
+    margin-bottom: 0.0rem;
+    text-align: right;
 }

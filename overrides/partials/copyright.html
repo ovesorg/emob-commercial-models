@@ -5,21 +5,6 @@
   {% if config.copyright %}
     {{ config.copyright }}
   {% endif %}
-
-  {% if page and page.meta and (page.meta.oves_last_editor or page.meta.oves_revision_summary or page.meta.oves_doc_version or page.meta.oves_revision_date) %}
-    <div class="oves-editorial-trail">
-      {% if page.meta.oves_doc_version %}
-        <span>Version: {{ page.meta.oves_doc_version }}</span>
-      {% endif %}
-      {% if page.meta.oves_last_editor %}
-        <span> · Last editor: {{ page.meta.oves_last_editor }}</span>
-      {% endif %}
-      {% if page.meta.oves_revision_summary %}
-        <span> · Revision: {{ page.meta.oves_revision_summary }}</span>
-      {% endif %}
-      {% if page.meta.oves_revision_date %}
-        <span> · Date: {{ page.meta.oves_revision_date }}</span>
-      {% endif %}
-    </div>
-  {% endif %}
 </div>
+
+{% include "partials/edition.html" %}

@@ -6,6 +6,12 @@ copyright: Copyright &copy; 2025 Omnivoltaic Energy Solutions
 docs_dir: docs
 site_dir: site
 
+extra:
+  oves_doc_version: 1.0.0
+  oves_last_editor: Huashan Wang
+  oves_revision_summary: Refactoring Navigation
+  oves_revision_date: 2025-12-16
+
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js
   - overrides/javascripts/chartjs-init.js
