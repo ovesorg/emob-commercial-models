@@ -12,98 +12,105 @@ extra:
   oves_revision_summary: Refactoring Navigation
   oves_revision_date: 2025-12-16
 
+  generator: false
 extra_javascript:
-  - https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js
-  - overrides/javascripts/chartjs-init.js
+- https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js
+- overrides/javascripts/chartjs-init.js
 
 theme:
   name: material
   custom_dir: overrides
   palette:
-    - scheme: default
-      primary: blue
-      accent: blue
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-    - scheme: slate
-      primary: blue
-      accent: blue
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
+  - scheme: default
+    primary: blue
+    accent: blue
+    toggle:
+      icon: material/brightness-7
+      name: Switch to dark mode
+  - scheme: slate
+    primary: blue
+    accent: blue
+    toggle:
+      icon: material/brightness-4
+      name: Switch to light mode
   features:
-    - navigation.top
-    - search.highlight
-    - content.code.copy
-    - toc.integrate
-
+  - navigation.top
+  - navigation.tracking
+  - navigation.instant
+  - navigation.instant.progress
+  - search.highlight
+  - content.code.copy
+  - toc.integrate
 markdown_extensions:
-  - admonition
-  - pymdownx.details
-  - pymdownx.superfences
-  - pymdownx.tabbed:
-      alternate_style: true
-  - tables
-  - toc:
-      permalink: true
+- admonition
+- pymdownx.details
+- pymdownx.superfences
+- pymdownx.tabbed:
+    alternate_style: true
+- tables
+- toc:
+    permalink: true
 
 plugins:
-  - search
+- search
 
 nav:
-  - Home: index.md
-  - Discussion 12-03-25: discussion-120325.md
-  - 0-Overview:
-      - 0.0 Overview: 0-overview/index.md
-  - 1-Product-Unit Model:
-      - 1.0 Overview: 1-product-unit-model/index.md
-      - 1.1 Concepts: 1-product-unit-model/1-concepts.md
-      - 1.2 Taxonomy: 1-product-unit-model/2-taxonomy.md
-      - 1.3 Prototypes: 1-product-unit-model/3-prototypes.md
-      - 1.4 Odoo System: 1-product-unit-model/4-odoo-system.md
-      - 1.5 ABS System: 1-product-unit-model/5-abs-system.md
-      - 1.6 Dirac-Odoo-ABS: 1-product-unit-model/6-dirac-odoo-abs.md
-  - 2-Product-Unit Library:
-      - 2.0 Overview: 2-product-unit-library/index.md
-      - 2.1 Physical: 2-product-unit-library/1-physical.md
-      - 2.2 Service: 2-product-unit-library/2-service.md
-      - 2.3 Digital: 2-product-unit-library/3-digital.md
-      - 2.4 Contract: 2-product-unit-library/4-contract.md
-  - 3-Product-Bundle Library:
-      - 3.0 Overview: 3-product-bundle-library/index.md
-      - 3.1 Bundle Design: 3-product-bundle-library/1-bundle-design.md
-      - 3.2 Service Templates: 3-product-bundle-library/2-service-templates.md
-      - 3.3 BSS Bundles: 3-product-bundle-library/3-bss-bundles.md
-  - 4-Pricing Models:
-      - 4.0 Overview: 4-pricing-models/index.md
-      - 4.1 Pricing Types: 4-pricing-models/1-pricing-types.md
-      - 4.2 Price Management: 4-pricing-models/2-price-management.md
-      - 4.3 Risks & Controls: 4-pricing-models/3-risks-and controls.md
-      - 4.4 Risk-Based Pricing Patterns: 4-pricing-models/4-risk-pricing.md
-  - 5-Transactional Models:
-      - 5.0 Overview: 5-transactional-models/index.md
-      - 5.1 Sales Order: 5-transactional-models/1-sales-order.md
-      - 5.2 Sales Reps: 5-transactional-models/2-sale-reps.md
-      - 5.3 Sales Channel: 5-transactional-models/3-sales-channel.md
-      - 5.4 Order to Sales: 5-transactional-models/4-order-to-sales.md
-      - 5.5 Session Register: 5-transactional-models/5-session-register.md
-      - 5.6 Odoo Models: 5-transactional-models/6-odoo-models.md
-      - 5.7 ABS Models: 5-transactional-models/7-abs-models.md
-      - 5.8 OVApp Workflows: 5-transactional-models/8-ovapp-workflows.md
-  - 6-Commercial Operations SoPs:
-      - 6.0 Overview: 6-commercial-operations-sops/index.md
-      - 6.1 SoP Principles: 6-commercial-operations-sops/1-sop-principles.md
-      - 6.2 SoP Templates: 6-commercial-operations-sops/2-sop-templates.md
-      - 6.3 Onboarding SoPs: 6-commercial-operations-sops/3-onboarding-sops.md
-      - 6.4 Sales Fulfilment SoPs: 6-commercial-operations-sops/4-sales-fulfilment-sops.md
-      - 6.5 Subscription Service SoPs: 6-commercial-operations-sops/5-subscription-service-sops.md
-      - 6.6 Aftersales Support SoPs: 6-commercial-operations-sops/6-aftersales-support-sops.md
-  - 7-Market-Specific Models:
-      - 7.0 Overview: 7-market-specific-models/index.md
-  - 8-Integration & DevOps:
-      - 8.0 Overview: 8-integration-devops/index.md
-      - 8.1 Odoo Integration: 8-integration-devops/1-odoo-integration.md
-      - 8.2 BSS Setup Data Types: 8-integration-devops/2-bss-setup-data-types.md
-  - 9-Appendix:
-      - 9.1 Glossary: 9-appendix/1-glossary.md
+- Home: index.md
+- Discussion 12-03-25: discussion-120325.md
+- 0-Overview:
+  - 0.0 Overview: 0-overview/index.md
+- 1-Product-Unit Model:
+  - 1.0 Overview: 1-product-unit-model/index.md
+  - 1.1 Concepts: 1-product-unit-model/1-concepts.md
+  - 1.2 Taxonomy: 1-product-unit-model/2-taxonomy.md
+  - 1.3 Prototypes: 1-product-unit-model/3-prototypes.md
+  - 1.4 Odoo System: 1-product-unit-model/4-odoo-system.md
+  - 1.5 ABS System: 1-product-unit-model/5-abs-system.md
+  - 1.6 Dirac-Odoo-ABS: 1-product-unit-model/6-dirac-odoo-abs.md
+- 2-Product-Unit Library:
+  - 2.0 Overview: 2-product-unit-library/index.md
+  - 2.1 Physical: 2-product-unit-library/1-physical.md
+  - 2.2 Service: 2-product-unit-library/2-service.md
+  - 2.3 Digital: 2-product-unit-library/3-digital.md
+  - 2.4 Contract: 2-product-unit-library/4-contract.md
+- 3-Product-Bundle Library:
+  - 3.0 Overview: 3-product-bundle-library/index.md
+  - 3.1 Bundle Design: 3-product-bundle-library/1-bundle-design.md
+  - 3.2 Service Templates: 3-product-bundle-library/2-service-templates.md
+  - 3.3 BSS Bundles: 3-product-bundle-library/3-bss-bundles.md
+- 4-Pricing Models:
+  - 4.0 Overview: 4-pricing-models/index.md
+  - 4.1 Pricing Types: 4-pricing-models/1-pricing-types.md
+  - 4.2 Price Management: 4-pricing-models/2-price-management.md
+  - 4.3 Risks & Controls: 4-pricing-models/3-risks-and controls.md
+  - 4.4 Risk-Based Pricing Patterns: 4-pricing-models/4-risk-pricing.md
+- 5-Transactional Models:
+  - 5.0 Overview: 5-transactional-models/index.md
+  - 5.1 Sales Order: 5-transactional-models/1-sales-order.md
+  - 5.2 Sales Reps: 5-transactional-models/2-sale-reps.md
+  - 5.3 Sales Channel: 5-transactional-models/3-sales-channel.md
+  - 5.4 Order to Sales: 5-transactional-models/4-order-to-sales.md
+  - 5.5 Session Register: 5-transactional-models/5-session-register.md
+  - 5.6 Odoo Models: 5-transactional-models/6-odoo-models.md
+  - 5.7 ABS Models: 5-transactional-models/7-abs-models.md
+  - 5.8 OVApp Workflows: 5-transactional-models/8-ovapp-workflows.md
+- 6-Commercial Operations SoPs:
+  - 6.0 Overview: 6-commercial-operations-sops/index.md
+  - 6.1 SoP Principles: 6-commercial-operations-sops/1-sop-principles.md
+  - 6.2 SoP Templates: 6-commercial-operations-sops/2-sop-templates.md
+  - 6.3 Onboarding SoPs: 6-commercial-operations-sops/3-onboarding-sops.md
+  - 6.4 Sales Fulfilment SoPs: 6-commercial-operations-sops/4-sales-fulfilment-sops.md
+  - 6.5 Subscription Service SoPs: 6-commercial-operations-sops/5-subscription-service-sops.md
+  - 6.6 Aftersales Support SoPs: 6-commercial-operations-sops/6-aftersales-support-sops.md
+- 7-Market-Specific Models:
+  - 7.0 Overview: 7-market-specific-models/index.md
+- 8-Integration & DevOps:
+  - 8.0 Overview: 8-integration-devops/index.md
+  - 8.1 Odoo Integration: 8-integration-devops/1-odoo-integration.md
+  - 8.2 BSS Setup Data Types: 8-integration-devops/2-bss-setup-data-types.md
+- 9-Appendix:
+  - 9.1 Glossary: 9-appendix/1-glossary.md
+repo_name: ovesorg/emob-commercial-models
+repo_url: https://github.com/ovesorg/emob-commercial-models
+extra_css:
+- stylesheets/extra.css
