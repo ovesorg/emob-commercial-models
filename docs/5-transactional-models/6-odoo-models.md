@@ -2,7 +2,15 @@
 
 <!-- This file mirrors the content from 5-odoo-models.md to align with the new section order. -->
 
-Here’s a single, developer-facing **Odoo Model SUMMARY**, with the **model changes first**, then the explanatory context.
+!!! info "Asset-Service Binding Architecture"
+    For comprehensive documentation on how physical assets bind to service contracts via serial numbers, see the **[Assets & Serial Numbers](https://docs.omnivoltaic.com/odoo-migration/assets-serial-numbers/)** section in the Odoo Migration documentation. This covers:
+    
+    - Serial number as non-fungible asset identity
+    - Sales Order line-level contract semantics
+    - Odoo ↔ ABS integration contract
+    - ServicePlan instantiation rules
+
+Here's a single, developer-facing **Odoo Model SUMMARY**, with the **model changes first**, then the explanatory context.
 
 ---
 
