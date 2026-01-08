@@ -78,6 +78,7 @@ nav:
   - 3.1 Bundle Design: 3-product-bundle-library/1-bundle-design.md
   - 3.2 Service Templates: 3-product-bundle-library/2-service-templates.md
   - 3.3 BSS Bundles: 3-product-bundle-library/3-bss-bundles.md
+  - 3.4 Odoo Service Bundle: 3-product-bundle-library/4-odoo-service-bundle.md
 - 4-Pricing Models:
   - 4.0 Overview: 4-pricing-models/index.md
   - 4.1 Pricing Types: 4-pricing-models/1-pricing-types.md
