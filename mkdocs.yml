@@ -100,9 +100,12 @@ nav:
   - 6.1 SoP Principles: 6-commercial-operations-sops/1-sop-principles.md
   - 6.2 SoP Templates: 6-commercial-operations-sops/2-sop-templates.md
   - 6.3 Onboarding SoPs: 6-commercial-operations-sops/3-onboarding-sops.md
-  - 6.4 Sales Fulfilment SoPs: 6-commercial-operations-sops/4-sales-fulfilment-sops.md
-  - 6.5 Subscription Service SoPs: 6-commercial-operations-sops/5-subscription-service-sops.md
-  - 6.6 Aftersales Support SoPs: 6-commercial-operations-sops/6-aftersales-support-sops.md
+  - 6.4 Sales Fulfilment SoPs: 
+      6-commercial-operations-sops/4-sales-fulfilment-sops.md
+  - 6.5 Subscription Service SoPs: 
+      6-commercial-operations-sops/5-subscription-service-sops.md
+  - 6.6 Aftersales Support SoPs: 
+      6-commercial-operations-sops/6-aftersales-support-sops.md
 - 7-Market-Specific Models:
   - 7.0 Overview: 7-market-specific-models/index.md
 - 8-Integration & DevOps:
@@ -115,3 +118,5 @@ repo_name: ovesorg/emob-commercial-models
 repo_url: https://github.com/ovesorg/emob-commercial-models
 extra_css:
 - stylesheets/extra.css
+hooks:
+- hooks/update_date.py
