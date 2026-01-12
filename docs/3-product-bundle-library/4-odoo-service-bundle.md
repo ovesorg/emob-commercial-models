@@ -1,60 +1,131 @@
 # Services and Bundles in Odoo
 
-**Purpose:** Define the two-level binding model for ABS services tied to product models and individual serial numbers.
+**Purpose:** User guide for selling service products alongside physical products, with contracts automatically linked to specific assets.
 
-**Audience:** Developers, system architects, operations teams implementing service contract management.
+**Audience:** Sales operations, commercial teams, order entry staff.
 
 ---
 
-## Design Rationale
+## Overview
 
-ABS services and bundles operate with two key levels of binding:
+Service products in Odoo work like any other product, but represent services (warranties, swap privileges, maintenance plans) rather than physical goods. When sold alongside a physical product, service contracts are automatically created and linked to the specific asset's serial number.
 
-1. **Level 1**: **Service Products** tied to **Product Models** (defining the type of service available for a product).
-2. **Level 2**: **ABS Contracts** as instances of **service products**, tied to specific **serial numbers** (tracking individual products/assets and their associated service contracts).
+**Two-Level Structure**:
 
-This approach ensures flexibility, avoids redundancy and potential conflicts, and allows for clean separation between **product models** and **individual asset tracking**.
+1. **Service Products** (templates): Define what services are available for each product type (e.g., "E3Pro Warranty" for E3Pro motorcycles)
+2. **Service Contracts** (instances): Individual contracts created when sold, linked to a specific serial number
 
-## Operating Workflow
+## How to Sell Service Contracts
 
-1. **Select Serial Number**:
-   * User selects a **serial number** of a physical product from inventory or location (e.g., **E3Pro Serial 12345**).
+### Step 1: Create Sales Order
 
-2. **Determine Product Model**:
-   * System automatically identifies the associated **product model** (e.g., **E3Pro**) based on the serial number.
+Create a standard Sales Order with:
+- Customer information
+- At least one physical product line (e.g., E3Pro motorcycle)
+- One or more service product lines (e.g., E3Pro Warranty, E3Pro Swap Privilege)
 
-3. **Available Service Type Filtering**:
-   * System **filters** and presents only valid **ABS service types** (e.g., **E3Pro-Warranty**) that can be applied to that product model.
+### Step 2: Assign Serial Number to Physical Product
 
-4. **Create ABS Contract**:
-   * User selects appropriate **service product template** (e.g., **E3Pro-Warranty**) and creates the **ABS contract**, tied to the selected serial number.
+When confirming the order:
+1. Select the specific serial number for the physical product being sold
+2. The system automatically identifies which service products are compatible with this product type
 
-5. **Service Contract Management**:
-   * The **ABS service contract** is tied to the **specific asset** (via serial number) and the **service product template**. It includes **start** and **end date**, and can be marked as **active** or **expired**.
+### Step 3: Service Auto-Linking
 
-## Two-Level Modeling
+The system automatically:
+- Links all service products in the order to the physical product's serial number
+- Creates individual service contracts for each service
+- Sets start date (typically order confirmation date)
+- Calculates end date based on service duration
 
-| **Level**                                   | **Description**                                                                                                                                                                                                                         | **Example**                                                                   |
-| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| **Level 1: ABS Service as Service Product** | **ABS services** are modeled as **service products** (e.g., **E3Pro-Warranty**) that are tied to **product models** (e.g., **E3Pro**). A **service product** defines the type of service (e.g., warranty, maintenance).                 | **Service Product**: E3Pro-Warranty <br> **Target Product**: E3Pro (model)    |
-| **Level 2: ABS Contract as Instance**       | **ABS contracts** are **instances** of the service products, tied to a **specific serial number**. The **contract** links a **specific asset** (serial number) to a service (e.g., **E3Pro Serial 12345** gets the **E3Pro-Warranty**). | **Contract**: E3Pro Warranty 12345 <br> **Serial Number**: E3Pro Serial 12345 |
+### Step 4: Contract Activation
 
-## Model Extension: ABSContract
+Once the order is confirmed:
+- Service contracts become **Active**
+- Customer gains access to the services
+- Contracts appear in the Service Contracts view
 
-1. **service_contract_id**: A unique identifier for each **ABS service contract**.
-2. **service_serial_number**: The **serial number** of the specific product being serviced (e.g., **E3Pro Serial 12345**).
-3. **service_template_id**: The **service product template** (e.g., **E3Pro-Warranty**) that defines the type of service, linked to the **product model** (e.g., **E3Pro**).
-4. **active**: Status of the service contract (active or expired).
-5. **start_date** & **end_date**: The lifecycle of the service contract, defining its duration.
+## Managing Service Contracts
 
-The **ABS service contract** links to a service template (tied to a product model) and is itemized by serial number.
+### Viewing Contracts
 
-## Key Design Principles
+Navigate to: **Sales > Service Contracts**
 
-* **Service Products** (Level 1) are tied to **product models** and represent the **type** of service (e.g., **E3Pro-Warranty** for **E3Pro**). They define what services are available for specific product types.
+Filters available:
+- By customer
+- By serial number
+- By service type
+- By status (Active, Expired, Fulfilled)
 
-* **ABS Contracts** (Level 2) are **specific instances** of service products, tied to a **serial number** of a physical asset (e.g., **E3Pro Serial 12345**), representing a **service contract** for a particular asset.
+### Contract Lifecycle
 
-* **Filtering Valid Service Types**: Once the **serial number** is selected, the system filters available **ABS service types** to ensure only valid contracts (e.g., **E3Pro-Warranty**) can be created for the correct **product model**.
+**Draft**: Contract created but order not confirmed  
+**Active**: Contract in force, services available  
+**Fulfilled**: All service obligations completed  
+**Expired**: Contract end date reached
 
-* The **ABS contract** represents the **service contract** applied to an asset, bound to the service template (service type) rather than directly to the product model, ensuring proper separation of concerns.
+## Service Products vs. Service Contracts
+
+| **Concept**           | **What It Is**                                                                                      | **Example**                                              |
+|-----------------------|-----------------------------------------------------------------------------------------------------|----------------------------------------------------------|
+| **Service Product**   | Template defining a type of service available for purchase                                          | "E3Pro Warranty" (can be sold to any E3Pro customer)    |
+| **Service Contract**  | Individual contract instance created when a service product is sold, linked to a specific serial    | "E3Pro Warranty for Serial 12345" (tied to one motorcycle) |
+
+## Service Contract Fields
+
+When viewing a service contract, you'll see:
+
+**Contract Number**: Unique identifier (e.g., SVC-2024-001234)  
+**Customer**: Who the contract is with  
+**Service Type**: Which service product (e.g., E3Pro Warranty)  
+**Serial Number**: Which specific asset is covered  
+**Start Date**: When the contract begins  
+**End Date**: When the contract expires  
+**Status**: Current state (Draft/Active/Fulfilled/Expired)  
+**Sales Order**: Original order that created this contract
+
+## Important Rules
+
+### One Physical Product Per Order
+
+Each Sales Order with service products must contain **exactly one** physical product serial number. All service products in that order will link to this serial.
+
+**Why**: Ensures clear contract ownership and prevents ambiguity about which asset a service covers.
+
+### Compatible Services Only
+
+The system automatically filters service products based on the physical product type. You can only sell services that are compatible with the product model.
+
+**Example**: "E3Pro Warranty" only appears as an option when selling an E3Pro motorcycle, not an E5Pro.
+
+### Service Transferability
+
+Some services are **transferable** (follow the asset if sold), others are **non-transferable** (bound to original buyer):
+
+- **Transferable**: Warranty (new owner inherits remaining coverage)
+- **Non-transferable**: Swap privilege (tied to original customer account)
+
+Transferability is defined in the service product configuration.
+
+## Reporting
+
+### Outstanding Service Liability
+
+View all active contracts and their estimated service costs:
+
+**Reports > Service Contracts > Liability Report**
+
+Shows:
+- Total active contracts by service type
+- Estimated provision costs
+- Geographic distribution
+- Expiration timeline
+
+### Contract Traceability
+
+From any serial number, view:
+- All service contracts (past and present)
+- Service history
+- Claims/fulfillment records
+
+**Inventory > Serial Numbers > [Select Serial] > Service Contracts Tab**
