@@ -8,9 +8,9 @@ site_dir: site
 
 extra:
   oves_doc_version: 1.0.0
-  oves_last_editor: Huashan Wang
-  oves_revision_summary: Refactoring Navigation
-  oves_revision_date: 2025-12-16
+  oves_last_editor: "Dr. H Wang"
+  oves_revision_summary: "Service Products SO Logic"
+  oves_revision_date: "2026-01-13"
 
   generator: false
 extra_javascript:
@@ -73,6 +73,7 @@ nav:
   - 2.2 Service: 2-product-unit-library/2-service.md
   - 2.3 Digital: 2-product-unit-library/3-digital.md
   - 2.4 Contract: 2-product-unit-library/4-contract.md
+  - 2.5 Composite: 2-product-unit-library/5-composite.md
 - 3-Product-Bundle Library:
   - 3.0 Overview: 3-product-bundle-library/index.md
   - 3.1 Bundle Design: 3-product-bundle-library/1-bundle-design.md
@@ -85,6 +86,7 @@ nav:
   - 4.2 Price Management: 4-pricing-models/2-price-management.md
   - 4.3 Risks & Controls: 4-pricing-models/3-risks-and controls.md
   - 4.4 Risk-Based Pricing Patterns: 4-pricing-models/4-risk-pricing.md
+  - 4.5 Risk Pricing: 4-pricing-models/risk-pricing.md
 - 5-Transactional Models:
   - 5.0 Overview: 5-transactional-models/index.md
   - 5.1 Sales Order: 5-transactional-models/1-sales-order.md
@@ -93,6 +95,7 @@ nav:
   - 5.4 Order to Sales: 5-transactional-models/4-order-to-sales.md
   - 5.5 Session Register: 5-transactional-models/5-session-register.md
   - 5.6 Odoo Models: 5-transactional-models/6-odoo-models.md
+  - 5.6 Odoo Product Units: 5-transactional-models/6-odoo-product-units.md
   - 5.7 ABS Models: 5-transactional-models/7-abs-models.md
   - 5.8 OVApp Workflows: 5-transactional-models/8-ovapp-workflows.md
 - 6-Commercial Operations SoPs:
@@ -108,12 +111,19 @@ nav:
       6-commercial-operations-sops/6-aftersales-support-sops.md
 - 7-Market-Specific Models:
   - 7.0 Overview: 7-market-specific-models/index.md
+  - 7.1 Togo Models: 7-market-specific-models/togo-models.md
 - 8-Integration & DevOps:
   - 8.0 Overview: 8-integration-devops/index.md
   - 8.1 Odoo Integration: 8-integration-devops/1-odoo-integration.md
   - 8.2 BSS Setup Data Types: 8-integration-devops/2-bss-setup-data-types.md
 - 9-Appendix:
+  - 9.0 Overview: 9-appendix/index.md
   - 9.1 Glossary: 9-appendix/1-glossary.md
+  - 9.2 Reference Templates: 9-appendix/2-reference-templates.md
+  - 9.3 Sample Product-Units: 9-appendix/3-sample-product-units.md
+  - 9.4 Sample Bundles: 9-appendix/4-sample-bundles.md
+  - 9.5 Example Contracts Flows: 9-appendix/5-example-contracts-flows.md
+  - 9.6 Regulatory By Market: 9-appendix/6-regulatory-by-market.md
 repo_name: ovesorg/emob-commercial-models
 repo_url: https://github.com/ovesorg/emob-commercial-models
 extra_css:

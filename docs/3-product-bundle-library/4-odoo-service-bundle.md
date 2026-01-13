@@ -4,46 +4,76 @@
 
 **Audience:** Sales operations, commercial teams, order entry staff.
 
+**Technical Reference:** See `odoo-migration` repo → `docs/assets-serial-numbers/service-bundles-intents.md` for implementation details.
+
 ---
 
 ## Overview
 
 Service products in Odoo work like any other product, but represent services (warranties, swap privileges, maintenance plans) rather than physical goods. When sold alongside a physical product, service contracts are automatically created and linked to the specific asset's serial number.
 
-**Two-Level Structure**:
+**Two Sales Order Types**:
 
-1. **Service Products** (templates): Define what services are available for each product type (e.g., "E3Pro Warranty" for E3Pro motorcycles)
-2. **Service Contracts** (instances): Individual contracts created when sold, linked to a specific serial number
+1. **Bundle SO**: Physical product + service products sold together (new customer)
+2. **Service-only SO**: Additional services purchased for an existing asset (post-delivery)
 
 ## How to Sell Service Contracts
 
-### Step 1: Create Sales Order
+### Option A: Bundle SO (New Purchase)
+
+Use when selling a physical product with services.
+
+#### Step 1: Create Sales Order
 
 Create a standard Sales Order with:
 - Customer information
-- At least one physical product line (e.g., E3Pro motorcycle)
+- One physical product line (e.g., E3Pro motorcycle)
 - One or more service product lines (e.g., E3Pro Warranty, E3Pro Swap Privilege)
 
-### Step 2: Assign Serial Number to Physical Product
+#### Step 2: Confirm and Deliver
 
-When confirming the order:
-1. Select the specific serial number for the physical product being sold
-2. The system automatically identifies which service products are compatible with this product type
+1. Confirm the order
+2. Process the delivery picking
+3. Assign the specific serial number during delivery
 
-### Step 3: Service Auto-Linking
+#### Step 3: Contract Auto-Creation
 
-The system automatically:
-- Links all service products in the order to the physical product's serial number
-- Creates individual service contracts for each service
-- Sets start date (typically order confirmation date)
+After delivery completion, the system automatically:
+- Creates service contracts linked to the delivered serial
+- Sets start date (delivery date)
 - Calculates end date based on service duration
+- Syncs to ABS as ServicePlans
 
-### Step 4: Contract Activation
+---
 
-Once the order is confirmed:
-- Service contracts become **Active**
-- Customer gains access to the services
-- Contracts appear in the Service Contracts view
+### Option B: Service-only SO (Post-Delivery Purchase)
+
+Use when a customer wants to add services to an asset they already own.
+
+#### Step 1: Find Original Purchase
+
+Search for the customer's original Bundle SO that sold the physical product.
+
+#### Step 2: Create Service-only SO
+
+1. Create new Sales Order
+2. Select **Original Purchase Order** field → link to the Bundle SO
+3. System auto-populates:
+   - Customer (from original SO)
+   - Target Serial (from original SO's delivery)
+
+#### Step 3: Add Service Products
+
+Add only service products. The system validates:
+- **Ownership**: Must be same customer as original purchase
+- **Compatibility**: Services must be compatible with the asset type
+- **Temporal eligibility**: Some services have time limits (e.g., "Extended Warranty" only within 30 days of purchase)
+
+#### Step 4: Confirm
+
+On confirmation:
+- Service contracts created immediately (no delivery needed)
+- Linked to the target serial from original SO
 
 ## Managing Service Contracts
 
@@ -86,17 +116,43 @@ When viewing a service contract, you'll see:
 
 ## Important Rules
 
-### One Physical Product Per Order
+### Bundle SO: One Physical Product Per Order
 
-Each Sales Order with service products must contain **exactly one** physical product serial number. All service products in that order will link to this serial.
+Each Bundle SO with service products must contain **exactly one** physical product serial number. All service products in that order will link to this serial.
 
 **Why**: Ensures clear contract ownership and prevents ambiguity about which asset a service covers.
+
+### Service-only SO: Must Reference Original Purchase
+
+Service-only SOs **must** link to the original Bundle SO via the "Original Purchase Order" field. This:
+- Enforces ownership (same customer)
+- Provides temporal anchor for eligibility rules
+- Creates audit trail
 
 ### Compatible Services Only
 
 The system automatically filters service products based on the physical product type. You can only sell services that are compatible with the product model.
 
 **Example**: "E3Pro Warranty" only appears as an option when selling an E3Pro motorcycle, not an E5Pro.
+
+### Service Purchase Modes
+
+Some services can only be sold in specific contexts:
+
+| Mode | Meaning | Example |
+|------|---------|----------|
+| **Bundle Only** | Can only be purchased with new physical product | "E3Pro Warranty (New)" |
+| **Service-only** | Can only be purchased post-delivery | "E3Pro Extended Warranty" |
+| **Both** | Available in either context | "E3Pro Swap Service" |
+
+### Temporal Eligibility
+
+Some services have time-based constraints:
+
+| Service | Max Days After Purchase | Requires Prior Service |
+|---------|------------------------|------------------------|
+| E3Pro Extended Warranty | 30 days | E3Pro Warranty (New) |
+| E3Pro Swap Renewal | No limit | E3Pro Swap Service |
 
 ### Service Transferability
 
