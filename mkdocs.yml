@@ -16,6 +16,7 @@ extra:
 extra_javascript:
 - https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js
 - overrides/javascripts/chartjs-init.js
+- javascripts/global-doc-home.js
 
 theme:
   name: material
