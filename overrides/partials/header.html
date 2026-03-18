@@ -1,0 +1,65 @@
+{#-
+  OVES header override:
+  - stays close to stock Material header behavior
+  - adds "Doc Hub" text next to the logo
+  - reorders right-side controls to: search, source, language, palette
+-#}
+{% set class = "md-header" %}
+{% if "navigation.tabs.sticky" in features %}
+  {% set class = class ~ " md-header--shadow md-header--lifted" %}
+{% elif "navigation.tabs" not in features %}
+  {% set class = class ~ " md-header--shadow" %}
+{% endif %}
+<header class="{{ class }}" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="{{ lang.t('header') }}">
+    <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}" title="Back to Document Hub" class="md-header__button md-logo" aria-label="Back to Document Hub" data-md-component="logo">
+      {% include "partials/logo.html" %}
+      <span class="oves-doc-hub-label">Doc Hub</span>
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      {% set icon = config.theme.icon.menu or "material/menu" %}
+      {% include ".icons/" ~ icon ~ ".svg" %}
+    </label>
+    {% if "material/search" in config.plugins %}
+      {% set search = config.plugins["material/search"] | attr("config") %}
+      {% if search.enabled %}
+        <label class="md-header__button md-icon" for="__search">
+          {% set icon = config.theme.icon.search or "material/magnify" %}
+          {% include ".icons/" ~ icon ~ ".svg" %}
+        </label>
+        {% include "partials/search.html" %}
+      {% endif %}
+    {% endif %}
+    <a
+      href="https://docs.omnivoltaic.com/internal/consolidated-docs/global-search/"
+      class="md-header__button md-icon oves-global-search-link"
+      title="Search all docs"
+      aria-label="Search all docs"
+    >
+      {% set icon = config.theme.icon.search or "material/magnify" %}
+      {% include ".icons/" ~ icon ~ ".svg" %}
+      <span class="oves-global-search-label">Global</span>
+    </a>
+    {% if config.repo_url %}
+      <div class="md-header__source">
+        {% include "partials/source.html" %}
+      </div>
+    {% endif %}
+    {% if config.extra.alternate %}
+      {% include "partials/alternate.html" %}
+    {% endif %}
+    {% if config.theme.palette %}
+      {% if not config.theme.palette is mapping %}
+        {% include "partials/palette.html" %}
+      {% endif %}
+    {% endif %}
+    {% if not config.theme.palette is mapping %}
+      {% include "partials/javascripts/palette.html" %}
+    {% endif %}
+  </nav>
+  {% if "navigation.tabs.sticky" in features %}
+    {% if "navigation.tabs" in features %}
+      {% include "partials/tabs.html" %}
+    {% endif %}
+  {% endif %}
+</header>

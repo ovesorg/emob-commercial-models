@@ -131,3 +131,4 @@ extra_css:
 - stylesheets/extra.css
 hooks:
 - hooks/update_date.py
+- hooks/build_semantic_registry.py
