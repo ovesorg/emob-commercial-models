@@ -23,11 +23,12 @@
       "path": "hooks/update_date.py"
     },
     {
-      "action": "updated",
-      "path": "mkdocs.yml",
-      "details": [
-        "Added hooks configuration for auto-date update"
-      ]
+      "action": "created",
+      "path": "hooks/build_semantic_registry.py"
+    },
+    {
+      "action": "created",
+      "path": ".docs-template-info.json"
     }
   ],
   "next_steps": [

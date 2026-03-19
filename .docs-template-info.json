@@ -1,0 +1,10 @@
+{
+  "template_package": "mkdocs-oves-template",
+  "template_version": "0.1.2",
+  "repo_name": "emob-commercial-models",
+  "marker_version": 1,
+  "last_template_sync": "2026-03-19",
+  "site_name": "emob-commercial-models",
+  "template_state": "migrated",
+  "quality_marker": "template-managed"
+}
