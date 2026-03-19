@@ -2,6 +2,19 @@
   var cloudHome = "https://docs.omnivoltaic.com/internal/consolidated-docs/";
   var localHome = "http://127.0.0.1:8017/";
 
+  function normalizeDirectoryUrl() {
+    var current = new URL(window.location.href);
+    if (current.pathname.endsWith("/")) {
+      return;
+    }
+    var tail = current.pathname.split("/").pop() || "";
+    if (tail.indexOf(".") >= 0) {
+      return;
+    }
+    current.pathname += "/";
+    window.location.replace(current.toString());
+  }
+
   function withGlobalSearchQuery(target, query) {
     var url = new URL(target, window.location.href);
     url.searchParams.delete("q");
@@ -63,6 +76,7 @@
   }
 
   function start() {
+    normalizeDirectoryUrl();
     rewriteLogoLinks();
     bindGlobalSearchLinks();
     if (window.document$ && typeof window.document$.subscribe === "function") {
