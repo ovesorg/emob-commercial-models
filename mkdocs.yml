@@ -1,5 +1,6 @@
 site_name: eMob Commercial Models
-site_description: Commercial modeling framework for e-mobility services and operations
+site_description: Commercial modeling framework for e-mobility services and 
+  operations
 site_author: Your Organization
 copyright: Copyright &copy; 2026 Omnivoltaic Energy Solutions
 
@@ -13,6 +14,10 @@ extra:
   oves_revision_date: "2026-01-13"
 
   generator: false
+  oves_hub_integration:
+    enabled: true
+    cloud_home_url: https://docs.omnivoltaic.com/internal/consolidated-docs/
+    local_home_url: http://127.0.0.1:8017/
 extra_javascript:
 - https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js
 - overrides/javascripts/chartjs-init.js

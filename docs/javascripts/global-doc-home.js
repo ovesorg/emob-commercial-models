@@ -1,7 +1,4 @@
 (function () {
-  var cloudHome = "https://docs.omnivoltaic.com/internal/consolidated-docs/";
-  var localHome = "http://127.0.0.1:8017/";
-
   function normalizeDirectoryUrl() {
     var current = new URL(window.location.href);
     if (current.pathname.endsWith("/")) {
@@ -13,6 +10,10 @@
     }
     current.pathname += "/";
     window.location.replace(current.toString());
+  }
+
+  function normalizeUrl(value) {
+    return String(value || "").trim();
   }
 
   function withGlobalSearchQuery(target, query) {
@@ -27,17 +28,41 @@
     return url.toString();
   }
 
-  function targetUrl() {
-    return new Set(["127.0.0.1", "localhost"]).has(window.location.hostname)
-      ? localHome
-      : cloudHome;
+  function isLocalHost() {
+    return new Set(["127.0.0.1", "localhost"]).has(window.location.hostname);
   }
 
-  function rewriteLogoLinks() {
-    var href = targetUrl();
+  function getHubConfig() {
+    var globalLink = document.querySelector("a.oves-global-search-link[data-oves-hub-cloud-home]");
+    var homeLink = document.querySelector("[data-oves-hub-home-link][data-oves-hub-cloud-home]");
+    var source = globalLink || homeLink;
+    if (!source) {
+      return null;
+    }
+    return {
+      cloudHome: normalizeUrl(source.getAttribute("data-oves-hub-cloud-home")),
+      localHome: normalizeUrl(source.getAttribute("data-oves-hub-local-home"))
+    };
+  }
+
+  function targetUrl(config) {
+    if (!config || !config.cloudHome) {
+      return "";
+    }
+    if (isLocalHost() && config.localHome) {
+      return config.localHome;
+    }
+    return config.cloudHome;
+  }
+
+  function rewriteHubLinks(config) {
+    var href = targetUrl(config);
+    if (!href) {
+      return;
+    }
     var globalHref = href.replace(/\/$/, "") + "/global-search/";
     document
-      .querySelectorAll("a.md-header__button.md-logo[href], a.md-nav__button.md-logo[href]")
+      .querySelectorAll("[data-oves-hub-home-link][href]")
       .forEach(function (link) {
         link.href = href;
         link.title = "Back to Document Hub";
@@ -58,6 +83,9 @@
   }
 
   function bindGlobalSearchLinks() {
+    if (!document.querySelector("a.oves-global-search-link")) {
+      return;
+    }
     document
       .querySelectorAll("a.oves-global-search-link[href]")
       .forEach(function (link) {
@@ -77,11 +105,15 @@
 
   function start() {
     normalizeDirectoryUrl();
-    rewriteLogoLinks();
+    var config = getHubConfig();
+    if (!config) {
+      return;
+    }
+    rewriteHubLinks(config);
     bindGlobalSearchLinks();
     if (window.document$ && typeof window.document$.subscribe === "function") {
       window.document$.subscribe(function () {
-        rewriteLogoLinks();
+        rewriteHubLinks(config);
         bindGlobalSearchLinks();
       });
     }
