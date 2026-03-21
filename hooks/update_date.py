@@ -1,5 +1,12 @@
 """
 MkDocs hook to automatically update editorial date on build.
-Imports from mkdocs-oves-template package.
+This repo keeps build-critical hooks local so deployment stays self-contained.
 """
-from mkdocs_oves_template.hooks.update_date import on_config
+from datetime import datetime
+
+
+def on_config(config):
+    """Update oves_revision_date to current date on every build."""
+    current_date = datetime.now().strftime("%Y-%m-%d")
+    config["extra"]["oves_revision_date"] = current_date
+    return config
