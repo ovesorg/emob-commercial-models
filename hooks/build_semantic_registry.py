@@ -24,12 +24,15 @@ def on_post_build(config, **kwargs):
     repo_name = repo_root.name
     site_name = config.get("site_name") or repo_name
     base_url = f"https://docs.omnivoltaic.com/internal/{repo_name}/"
+    exclude_patterns = parse_exclude_docs(config.get("exclude_docs"))
 
     sections = []
     for doc_path in sorted(docs_dir.rglob("*")):
         if not doc_path.is_file() or doc_path.suffix.lower() not in MARKDOWN_SUFFIXES:
             continue
         rel_path = doc_path.relative_to(docs_dir).as_posix()
+        if is_excluded(rel_path, exclude_patterns):
+            continue
         sections.extend(extract_sections(doc_path.read_text(encoding="utf-8"), rel_path, base_url))
 
     terms = extract_glossary_terms(docs_dir, base_url)
@@ -181,3 +184,31 @@ def unique_anchor(anchor: str, seen: dict[str, int]) -> str:
     if count == 0:
         return anchor
     return f"{anchor}_{count}"
+
+
+def parse_exclude_docs(value) -> list[str]:
+    if value is None:
+        return []
+    if isinstance(value, str):
+        return [line.strip() for line in value.splitlines() if line.strip()]
+    if isinstance(value, (list, tuple, set)):
+        return [str(item).strip() for item in value if str(item).strip()]
+    return []
+
+
+def is_excluded(rel_path: str, patterns: list[str]) -> bool:
+    path = rel_path.strip("/")
+    parts = Path(path).parts
+    for pattern in patterns:
+        normalized = pattern.strip().replace("\\", "/").strip("/")
+        if not normalized:
+            continue
+        if normalized.startswith("*."):
+            if Path(path).match(normalized):
+                return True
+            continue
+        if path == normalized or path.startswith(normalized + "/"):
+            return True
+        if parts and parts[0] == normalized:
+            return True
+    return False

@@ -1,18 +1,14 @@
 site_name: eMob Commercial Models
-site_description: Commercial modeling framework for e-mobility services and 
-  operations
+site_description: Commercial modeling framework for e-mobility services and operations
 site_author: Your Organization
 copyright: Copyright &copy; 2026 Omnivoltaic Energy Solutions
-
 docs_dir: docs
 site_dir: site
-
 extra:
   oves_doc_version: 1.0.0
-  oves_last_editor: "Dr. H Wang"
-  oves_revision_summary: "Service Products SO Logic"
-  oves_revision_date: "2026-01-13"
-
+  oves_last_editor: Dr. H Wang
+  oves_revision_summary: Service Products SO Logic
+  oves_revision_date: '2026-01-13'
   generator: false
   oves_hub_integration:
     enabled: true
@@ -22,7 +18,6 @@ extra_javascript:
 - https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js
 - overrides/javascripts/chartjs-init.js
 - javascripts/global-doc-home.js
-
 theme:
   name: material
   custom_dir: overrides
@@ -56,10 +51,8 @@ markdown_extensions:
 - tables
 - toc:
     permalink: true
-
 plugins:
 - search
-
 nav:
 - Home: index.md
 - Discussion 12-03-25: discussion-120325.md
@@ -109,12 +102,9 @@ nav:
   - 6.1 SoP Principles: 6-commercial-operations-sops/1-sop-principles.md
   - 6.2 SoP Templates: 6-commercial-operations-sops/2-sop-templates.md
   - 6.3 Onboarding SoPs: 6-commercial-operations-sops/3-onboarding-sops.md
-  - 6.4 Sales Fulfilment SoPs: 
-      6-commercial-operations-sops/4-sales-fulfilment-sops.md
-  - 6.5 Subscription Service SoPs: 
-      6-commercial-operations-sops/5-subscription-service-sops.md
-  - 6.6 Aftersales Support SoPs: 
-      6-commercial-operations-sops/6-aftersales-support-sops.md
+  - 6.4 Sales Fulfilment SoPs: 6-commercial-operations-sops/4-sales-fulfilment-sops.md
+  - 6.5 Subscription Service SoPs: 6-commercial-operations-sops/5-subscription-service-sops.md
+  - 6.6 Aftersales Support SoPs: 6-commercial-operations-sops/6-aftersales-support-sops.md
 - 7-Market-Specific Models:
   - 7.0 Overview: 7-market-specific-models/index.md
   - 7.1 Togo Models: 7-market-specific-models/togo-models.md
@@ -137,3 +127,9 @@ extra_css:
 hooks:
 - hooks/update_date.py
 - hooks/build_semantic_registry.py
+exclude_docs: |
+  en/
+  fr/
+  zh/
+  *.fr.md
+  *.zh.md
