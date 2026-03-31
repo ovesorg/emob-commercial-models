@@ -1,0 +1,35 @@
+schema_version: "1.0"
+kind: "repo_manifest"
+
+repo_id: "emob-commercial-models"
+repo_class: "oves"
+lifecycle: "active"
+owner: "business-or-platform-owner-tbd"
+framework_repo: "dirac-framework"
+
+authority_order:
+  - repo_owner_rules
+  - repo_governance
+  - domain_intent
+  - repo_spec
+  - framework_guidance
+  - historical_experience
+
+entrypoints:
+  - "docs/agent/start-here.md"
+  - "docs/context/capabilities.md"
+  - "docs/context/workflows.md"
+  - "docs/context/contracts.md"
+  - "README.md"
+  - "docs/index.md"
+  - "mkdocs.yml"
+
+resource_roots:
+  specs: "docs"
+  governance: "docs/context"
+  architecture: "docs"
+  experience: "docs"
+
+notes:
+  - "This repo documents the eMob commercial modeling framework across business, pricing, transactional, operational, and integration domains."
+  - "Repo-local commercial model pages should guide repo-scoped work before broader framework inference."
