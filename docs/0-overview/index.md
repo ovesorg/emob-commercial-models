@@ -37,7 +37,10 @@ Define a commercially coherent, operationally actionable framework for Product-U
 - Asset-to-customer interaction logic
 - Smart asset operations and entitlements
 
-OVApp provides the customer and agent interfaces on top of these two pillars; it orchestrates user flows via their APIs but is never a system of record.
+OVApp provides the customer and agent interfaces on top of these two pillars; in
+SA-governed contexts this same application surface is the Portal App (`PA`),
+not a separate app. It orchestrates user flows via their APIs but is never a
+system of record.
 
 **Value Proposition:** Integration of CRM and Asset Relationship Management (ARM).
 

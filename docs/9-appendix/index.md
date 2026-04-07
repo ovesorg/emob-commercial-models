@@ -8,3 +8,4 @@
 - **9.4 Sample Bundles** – `4-sample-bundles.md`
 - **9.5 Example Contracts & Flows** – `5-example-contracts-flows.md`
 - **9.6 Regulatory by Market** – `6-regulatory-by-market.md`
+- **9.7 Repo Boundaries** – `7-repo-boundaries.md`

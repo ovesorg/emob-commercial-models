@@ -4,6 +4,10 @@
 
 Frontend app brings together ABS and Odoo backend functionality to create a coherent user experience.
 
+In SA-governed contexts, this frontend application surface is the Portal App
+(`PA`). `PA` is therefore the SA-governed portal form of OVApp, not a separate
+application.
+
 ### Core principles
 - ABS defines bundles and asset-based-service business logic, data models, and object behavior.
 - Odoo deals with Product Units; no bundle mirroring in Odoo.

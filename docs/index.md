@@ -62,3 +62,12 @@ This repository documents the commercial modeling framework for eMob asset-based
 - **Bundles** are customer-facing combinations of Product-Units, defined in ABS and expanded into Odoo order lines.
 - **Odoo** handles mature commercial transactions; **ABS** manages smart devices, asset lifecycle, and entitlements.
 - **DIRAC integration** ensures synchronized, traceable workflows between Odoo CRM and ABS ARM.
+
+## Cross-Repo Boundary
+
+- `emob-commercial-models` is the operations-facing and commercial-facing repo for product, pricing, SOP, and rollout guidance.
+- `dirac-odoo` is the developer-facing repo for Odoo and ERP implementation semantics.
+- `dirac-abs` is the developer-facing repo for ABS asset, entitlement, bundle, and IoT/device implementation semantics.
+
+Use [9.7 Repo Boundaries](9-appendix/7-repo-boundaries.md) when you need the
+durable ownership split rather than a specific product or transaction topic.

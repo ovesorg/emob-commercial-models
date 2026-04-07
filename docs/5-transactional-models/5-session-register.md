@@ -2,7 +2,10 @@
 
 ## Purpose
 
-A sales session records a customer interaction from start to finish in OVApp. Each session is backed by a draft `sale.order` in Odoo, which carries products, pricing, and payment attempts until completion.
+A sales session records a customer interaction from start to finish in OVApp.
+In SA-governed contexts this same application surface is the Portal App (`PA`),
+not a separate app. Each session is backed by a draft `sale.order` in Odoo,
+which carries products, pricing, and payment attempts until completion.
 
 ---
 

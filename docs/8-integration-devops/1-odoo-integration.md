@@ -14,9 +14,12 @@ The commercial model framework integrates three core systems:
 
 1. **Odoo** — Commercial workflow, pricing, orders, subscriptions
 2. **ABS (Asset Backoffice System)** — Smart asset management, entitlements, IoT
-3. **OVApp** — Customer and agent interfaces
+3. **OVApp / Portal App (`PA`)** — Customer and agent interfaces
 
-Odoo and ABS form the two backend pillars (commercial vs. asset). OVApp is the client that orchestrates user flows via their APIs; it is never a system of record.
+Odoo and ABS form the two backend pillars (commercial vs. asset). OVApp is the
+client that orchestrates user flows via their APIs; in SA-governed contexts
+this same application surface is the Portal App (`PA`), not a separate app. It
+is never a system of record.
 
 #### Architecture Consensus
 
@@ -59,7 +62,7 @@ How Product-Units map into digital systems:
 | Physical Product-Unit   | Odoo (inventory)    | ABS (asset tracking)      | Real-time        |
 | Service Product-Unit    | Odoo (subscription) | ABS (access/usage rights) | Real-time        |
 | Contract Product-Unit   | Odoo (contract)     | ABS (entitlement)         | Real-time        |
-| Digital Product-Unit    | OVApp/Odoo (UI)     | ABS (operational state)   | Event-based      |
+| Digital Product-Unit    | OVApp/PA/Odoo (UI)  | ABS (operational state)   | Event-based      |
 | Regulatory/Documentary  | Odoo (documentation)| —                         | As-needed        |
 
 **Note:** ABS bundles never appear as products in Odoo. ABS expands bundles into their constituent Product-Units, which Odoo records as `sale.order` line items.
@@ -133,10 +136,10 @@ How Product-Units map into digital systems:
 
 ## Integration Patterns
 
-### Pattern 1: Retail Session Flow (OVApp ↔ Odoo)
+### Pattern 1: Retail Session Flow (OVApp / PA ↔ Odoo)
 
 ```
-1. OVApp initiates session
+1. OVApp / PA initiates session
    → POST /api/sale.order (state='draft')
    → Returns order_id
 
@@ -184,13 +187,13 @@ Odoo Action: Generate invoice line if usage exceeds subscription allowance
 
 | Data Element | Sync Direction | Frequency | Critical Path |
 |--------------|----------------|-----------|---------------|
-| Customer creation | OVApp → Odoo | Real-time | Yes |
-| Product catalog | Odoo → OVApp | On-change | No |
-| Sales order | OVApp ↔ Odoo | Real-time | Yes |
-| Payment transaction | OVApp → Odoo | Real-time | Yes |
+| Customer creation | OVApp / PA → Odoo | Real-time | Yes |
+| Product catalog | Odoo → OVApp / PA | On-change | No |
+| Sales order | OVApp / PA ↔ Odoo | Real-time | Yes |
+| Payment transaction | OVApp / PA → Odoo | Real-time | Yes |
 | Entitlement trigger | Odoo → ABS | Real-time | Yes |
 | Asset event log | ABS → Odoo | Event-based | No |
-| Invoice generation | Odoo → OVApp | Async | No |
+| Invoice generation | Odoo → OVApp / PA | Async | No |
 
 ---
 
@@ -304,7 +307,7 @@ GROUP BY rep.name
 
 - `payment.transaction` record created with `state='error'`
 - `sale.order` remains in `state='draft'`
-- OVApp can retry payment or allow customer to resume later
+- OVApp / PA can retry payment or allow customer to resume later
 - All context (rep, outlet, channel) preserved on order
 
 ### Scenario: ABS unavailable during order confirmation
@@ -324,9 +327,9 @@ GROUP BY rep.name
 
 ## Security & Access Control
 
-### OVApp API User
+### OVApp / PA API User
 
-- Single technical `res.users` account for all OVApp traffic
+- Single technical `res.users` account for all OVApp / PA traffic
 - Limited to:
   - Create/update `sale.order` (draft only)
   - Create `res.partner` (customers)
@@ -349,11 +352,10 @@ If reps need direct Odoo portal access:
 - [ ] Implement `ov.outlet` model with all fields
 - [ ] Extend `sale.order` with `x_channel_partner_id`, `x_sales_rep_id`, `x_outlet_id`
 - [ ] Create API endpoints for order CRUD
-- [ ] Configure OVApp technical user and permissions
+- [ ] Configure OVApp / PA technical user and permissions
 - [ ] Implement webhook for Odoo → ABS entitlement creation
 - [ ] Set up ABS → Odoo usage logging endpoint
 - [ ] Create analytics views for channel/outlet/rep reporting
 - [ ] Document address SoT pattern for developers
 - [ ] Test payment failure recovery flow
 - [ ] Test order resume after interruption
-

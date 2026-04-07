@@ -120,6 +120,7 @@ nav:
   - 9.4 Sample Bundles: 9-appendix/4-sample-bundles.md
   - 9.5 Example Contracts Flows: 9-appendix/5-example-contracts-flows.md
   - 9.6 Regulatory By Market: 9-appendix/6-regulatory-by-market.md
+  - 9.7 Repo Boundaries: 9-appendix/7-repo-boundaries.md
 repo_name: ovesorg/emob-commercial-models
 repo_url: https://github.com/ovesorg/emob-commercial-models
 extra_css:

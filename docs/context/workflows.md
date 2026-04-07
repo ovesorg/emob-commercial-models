@@ -4,8 +4,9 @@
 
 1. Update the relevant domain pages under `docs/`
 2. Confirm the section structure and navigation in `mkdocs.yml`
-3. Preview locally with `mkdocs serve` or `mkdocs-oves-krr`
-4. Rebuild before wrap or publish
+3. Update `docs/9-appendix/7-repo-boundaries.md` if the change affects repo ownership between commercial, Odoo, and ABS documentation
+4. Preview locally with `mkdocs serve` or `mkdocs-oves-krr`
+5. Rebuild before wrap or publish
 
 ## Refresh MCP Repo Context
 
